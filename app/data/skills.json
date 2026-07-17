@@ -31,22 +31,22 @@
     "icon": "db",
     "tag": "E.DATA",
     "title": "Database & Pipeline",
-    "desc": "Time-series first, then everything else.",
-    "items": ["InfluxDB", "MongoDB", "PostgreSQL", "Redis", "Apache Kafka", "Mosquitto", "HiveMQ"]
+    "desc": "Realtime NoSQL, relational, and MQTT brokers.",
+    "items": ["Firebase (NoSQL)", "Firebase Firestore", "PostgreSQL", "Mosquitto", "HiveMQ"]
   },
   {
     "icon": "wave",
     "tag": "F.VIZ",
     "title": "Visualization & Dashboards",
     "desc": "Charts that wake up your on-call.",
-    "items": ["Grafana", "Node-RED", "Power BI", "React + Recharts", "D3.js"]
+    "items": ["React + Recharts", "D3.js"]
   },
   {
     "icon": "tools",
     "tag": "G.OPS",
     "title": "DevOps & Tools",
     "desc": "Build, ship, simulate, debug.",
-    "items": ["Git/GitHub", "Docker", "PlatformIO", "Arduino IDE", "KiCad", "EasyEDA", "Fritzing", "Proteus", "LTspice", "VS Code"]
+    "items": ["Git/GitHub", "Docker", "PlatformIO", "Arduino IDE", "EAGLE", "EasyEDA", "Fritzing", "VS Code"]
   },
   {
     "icon": "brain",
