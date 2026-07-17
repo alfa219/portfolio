@@ -11,13 +11,23 @@
     "stack": ["ESP32", "MQTT", "Flask", "Firebase", "Flutter", "Azure"]
   },
   {
-    "year": "2024 — 2025",
-    "title": "Lab Assistant · Hardware Development & Data Acquisition (IoT)",
+    "year": "2026 — Present",
+    "title": "Lab Assistant · Data Acquisition Systems (IoT Concentration)",
     "company": "Universitas Amikom Yogyakarta · Computer Lab",
     "points": [
-      "Mentored 40+ undergraduate students through hardware-development and data-acquisition practicum modules (ESP32, Arduino).",
-      "Maintained lab equipment inventory and prepared weekly practicum kits.",
+      "Assist the Data Acquisition practicum (semester 6, IoT concentration): guiding students through sensor reading, data logging, and telemetry on ESP32.",
+      "Prepare weekly practicum materials and help debug student wiring and firmware during lab sessions.",
       "Co-authored beginner MQTT tutorials used as supplementary reading."
+    ],
+    "stack": ["ESP32", "Arduino", "MQTT"]
+  },
+  {
+    "year": "2025",
+    "title": "Lab Assistant · Hardware Development",
+    "company": "Universitas Amikom Yogyakarta · Computer Lab",
+    "points": [
+      "Assisted the Hardware Development practicum (semester 4): microcontroller fundamentals and component-level wiring with Arduino and ESP32.",
+      "Maintained lab equipment inventory and prepared weekly practicum kits."
     ],
     "stack": ["Arduino", "ESP32"]
   }
