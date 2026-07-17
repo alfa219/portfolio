@@ -12,10 +12,10 @@
   },
   {
     "year": "2024 — 2025",
-    "title": "Lab Assistant · Embedded & IoT Practicum",
+    "title": "Lab Assistant · Hardware Development & Data Acquisition (IoT)",
     "company": "Universitas Amikom Yogyakarta · Computer Lab",
     "points": [
-      "Mentored 40+ undergraduate students through ESP32 and Arduino lab modules.",
+      "Mentored 40+ undergraduate students through hardware-development and data-acquisition practicum modules (ESP32, Arduino).",
       "Maintained lab equipment inventory and prepared weekly practicum kits.",
       "Co-authored beginner MQTT tutorials used as supplementary reading."
     ],
