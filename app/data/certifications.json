@@ -1,8 +1,3 @@
 [
-  { "issuer": "Cisco",    "logo": "CC", "title": "Cisco Networking Essentials",          "date": "Completed 2024" },
-  { "issuer": "Coursera", "logo": "CR", "title": "IoT Specialization (UC Irvine)",       "date": "Completed 2024" },
-  { "issuer": "AWS",      "logo": "AW", "title": "AWS Cloud Practitioner (Foundational)","date": "Issued 2024" },
-  { "issuer": "Dicoding", "logo": "DC", "title": "Belajar Fundamental IoT",              "date": "Completed 2023" },
-  { "issuer": "Udemy",    "logo": "UD", "title": "Mastering Microcontroller with STM32", "date": "Completed 2023" },
-  { "issuer": "Hackster", "logo": "HK", "title": "Hackster.io Contributor Badge",        "date": "Active 2022—present" }
+  { "issuer": "Cisco", "logo": "CC", "title": "Cisco Networking Essentials", "date": "Completed 2024" }
 ]
