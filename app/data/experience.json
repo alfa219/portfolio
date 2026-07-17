@@ -17,8 +17,8 @@
     "points": [
       "Mentored 40+ undergraduate students through ESP32 and Arduino lab modules.",
       "Maintained lab equipment inventory and prepared weekly practicum kits.",
-      "Co-authored beginner LoRaWAN and MQTT tutorials used as supplementary reading."
+      "Co-authored beginner MQTT tutorials used as supplementary reading."
     ],
-    "stack": ["Arduino", "ESP32", "LoRaWAN", "KiCad"]
+    "stack": ["Arduino", "ESP32"]
   }
 ]
