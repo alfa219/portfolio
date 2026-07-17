@@ -122,7 +122,7 @@
     "status": "live",
     "title": "Presensi SMPN 2 Paliyan — IoT School Attendance (RFID + ESP32)",
     "desc": "Sistem presensi sekolah berbasis IoT untuk SMPN 2 Paliyan — proyek pengabdian dengan sekolah sebagai mitra. Siswa tap kartu RFID pada alat ESP32 di gerbang (atau input NIPD via keypad saat lupa kartu), data dikirim ke server Flask, lalu dipantau real-time lewat dashboard admin & portal orang tua. Alat sudah terpasang dan dipakai harian.",
-    "stack": ["ESP32", "RC522 RFID", "Keypad 3x4", "LCD 16x2", "Ethernet W5500", "SD Card", "RTC DS3231", "UPS Backup", "Firebase Firestore"],
+    "stack": ["ESP32", "RC522 RFID", "Keypad 3x4", "LCD 16x2", "Ethernet W5500", "SD Card", "RTC DS3231", "UPS Backup", "Flask", "Firebase Firestore"],
     "photo_folder": "presensi-smpn2-paliyan",
     "photos": [
       {
@@ -131,21 +131,21 @@
       }
     ],
     "detail": {
-      "role": "Firmware & Hardware Engineer · proyek tim",
+      "role": "Firmware, Hardware & Backend · proyek tim",
       "duration": "2026 — Present",
       "challenge": "SMPN 2 Paliyan butuh presensi yang andal dan transparan: rekap manual lambat, orang tua tidak punya visibilitas kehadiran anak, dan koneksi jaringan di sekolah tidak selalu stabil — alat harus tetap mencatat meski LAN/server sedang mati.",
       "approach": [
-        "Kontribusi utama saya: firmware ESP32 dan perakitan hardware alat gerbang — RC522 RFID, keypad 3×4, LCD 16×2, RTC DS3231, modul Ethernet W5500, dan SD card.",
+        "Kontribusi saya mencakup tiga sisi: firmware ESP32, perakitan hardware alat gerbang (RC522 RFID, keypad 3×4, LCD 16×2, RTC DS3231, modul Ethernet W5500, SD card), dan backend server (Flask + Firebase Firestore).",
         "Alur presensi: siswa tap kartu RFID, atau masukkan NIPD lewat keypad sebagai fallback saat lupa/hilang kartu; status kehadiran langsung tampil di LCD.",
         "Ketahanan offline (store-and-forward): saat LAN/server mati, tap disimpan ke SD card dan dikirim ulang otomatis saat online kembali; jam disinkron via NTP dengan RTC DS3231 sebagai cadangan.",
         "Backup daya (UPS): alat dilengkapi UPS agar tetap menyala dan mencatat presensi saat listrik sekolah padam — melengkapi store-and-forward agar tidak ada tap yang hilang.",
         "Keandalan 24/7 tanpa pengawasan: watchdog (reboot sendiri bila program macet) dan reboot terjadwal harian, karena alat beroperasi terus di gerbang.",
-        "Konektivitas via Ethernet (W5500) untuk kestabilan; alat mengirim data ke server Flask — bukan langsung ke database — sesuai desain keamanan tim."
+        "Backend Flask yang saya bangun jadi satu-satunya pintu data: alat & browser tidak menyentuh Firestore langsung — akses lewat service account (Security Rules menolak akses klien), dengan REST API untuk tap presensi, data siswa, dan laporan."
       ],
       "outcome": [
         "Alat terpasang dan dipakai untuk presensi harian di SMPN 2 Paliyan — berjalan di lingkungan riil, bukan sekadar prototype lab.",
         "Tap RFID/keypad tetap tercatat andal meski koneksi terputus atau listrik padam, berkat store-and-forward ke SD card dan UPS backup.",
-        "Terintegrasi dengan sistem web tim: dashboard admin (rekap, roll-call, grafik, import Excel, export PDF/Excel/CSV, kenaikan kelas) dan portal orang tua (cek kehadiran via NISN)."
+        "Backend menyalakan dashboard admin (rekap, roll-call, grafik, import Excel, export PDF/Excel/CSV, kenaikan kelas) dan portal orang tua publik (cek kehadiran via NISN)."
       ],
       "links": {
         "github": "#",

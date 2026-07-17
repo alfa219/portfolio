@@ -5,10 +5,10 @@
     "company": "SMPN 2 Paliyan (mitra) · Gunungkidul",
     "points": [
       "Sistem presensi sekolah berbasis IoT (proyek pengabdian/kampus, kerja tim) — sudah terpasang dan dipakai untuk presensi harian di SMPN 2 Paliyan.",
-      "Kontribusi saya: firmware ESP32 dan perakitan hardware alat gerbang — RFID RC522, keypad, LCD, RTC DS3231, Ethernet W5500, SD card, dan UPS backup.",
+      "Kontribusi saya: firmware ESP32, perakitan hardware alat gerbang (RFID RC522, keypad, LCD, RTC DS3231, Ethernet W5500, SD card, UPS backup), dan backend server (Flask + Firebase Firestore).",
       "Alat tahan gangguan: store-and-forward ke SD card saat jaringan putus dan UPS saat listrik padam; watchdog + reboot terjadwal untuk operasi 24/7."
     ],
-    "stack": ["ESP32", "RC522 RFID", "Ethernet W5500", "SD Card", "UPS Backup"]
+    "stack": ["ESP32", "RC522 RFID", "Ethernet W5500", "Flask", "Firebase Firestore"]
   },
   {
     "year": "2025",
