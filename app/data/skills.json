@@ -4,14 +4,14 @@
     "tag": "A.HW",
     "title": "Hardware & MCU",
     "desc": "Boards, modules, and sensors I reach for first.",
-    "items": ["ESP32", "ESP8266", "Arduino Uno/Mega/Nano", "Raspberry Pi 3/4/5", "RPi Pico", "STM32", "NodeMCU", "BeagleBone", "DHT22", "BMP280", "MPU6050", "PIR"]
+    "items": ["ESP32", "ESP8266", "Arduino Uno/Mega/Nano", "RPi Pico", "STM32", "NodeMCU", "PZEM-004T", "RC522 RFID", "Relay Module", "LCD 16x2", "MicroSD Module", "Ethernet Module", "TP4056", "Solar Panel", "Vibration Motor", "DHT22", "BMP280", "MPU6050", "PIR"]
   },
   {
     "icon": "signal",
     "tag": "B.NET",
     "title": "Communication Protocols",
     "desc": "Wire and wireless — short range to LPWAN.",
-    "items": ["MQTT", "HTTP/REST", "WebSocket", "CoAP", "LoRaWAN", "Zigbee", "BLE", "Wi-Fi", "GSM/NB-IoT", "LTE-M", "Modbus", "RS-485"]
+    "items": ["MQTT", "HTTP/REST", "WebSocket", "BLE", "Wi-Fi", "GSM/NB-IoT", "LTE-M", "Modbus", "RS-485"]
   },
   {
     "icon": "code",
