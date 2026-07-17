@@ -1,0 +1,33 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+class BaseConfig:
+    SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-change-in-production")
+    SITE_NAME = os.getenv("SITE_NAME", "wildan.iot")
+    OWNER_NAME = os.getenv("OWNER_NAME", "Wildan Alfa Raezel")
+    OWNER_EMAIL = os.getenv("OWNER_EMAIL", "wildanraezel@gmail.com")
+    OWNER_LOCATION = os.getenv("OWNER_LOCATION", "Wates, Yogyakarta")
+
+
+class DevelopmentConfig(BaseConfig):
+    DEBUG = True
+    TESTING = False
+
+
+class ProductionConfig(BaseConfig):
+    DEBUG = False
+    TESTING = False
+
+
+class TestingConfig(BaseConfig):
+    TESTING = True
+
+
+config = {
+    "development": DevelopmentConfig,
+    "production": ProductionConfig,
+    "testing": TestingConfig,
+}

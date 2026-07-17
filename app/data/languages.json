@@ -1,0 +1,11 @@
+[
+  { "key": "cpp", "name": "C / C++", "prof": 85 },
+  { "key": "python", "name": "Python", "prof": 82 },
+  { "key": "python_micro", "name": "MicroPython", "prof": 75 },
+  { "key": "js", "name": "JavaScript", "prof": 65 },
+  { "key": "flask", "name": "Flask", "prof": 60 },
+  { "key": "node", "name": "Node.js", "prof": 55 },
+  { "key": "flutter", "name": "Flutter", "prof": 60 },
+  { "key": "dart", "name": "Dart", "prof": 58 },
+  { "key": "ladder", "name": "Ladder Logic", "prof": 50 }
+]

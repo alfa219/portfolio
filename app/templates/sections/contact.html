@@ -1,0 +1,82 @@
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="kicker">{{ t.contact_kicker }}</div>
+        <h2>{{ t.contact_title_l1 }}<br/>{{ t.contact_title_l2_pre }} <span class="accent">{{ t.contact_title_l2_accent }}</span></h2>
+        <p>{{ t.contact_p }}</p>
+
+        <div class="contact-info">
+          <div class="info-row">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"/></svg>
+            </div>
+            <span id="contact-email">{{ config.OWNER_EMAIL }}</span>
+            <button class="copy-btn" id="copy-email"
+              data-label-copy="{{ t.contact_copy }}"
+              data-label-copied="{{ t.contact_copied }}"
+              data-label-failed="{{ t.contact_copy_failed }}">{{ t.contact_copy }}</button>
+          </div>
+          <div class="info-row">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span>{{ config.OWNER_LOCATION }} {{ t.contact_location_suffix }}</span>
+          </div>
+          <div class="info-row">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <span>{{ t.contact_timezone }}</span>
+          </div>
+        </div>
+
+        <div class="avail-chips">
+          {% for k in ['contact_chip_1', 'contact_chip_2', 'contact_chip_3', 'contact_chip_4'] %}
+          <div class="avail-chip">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="check" style="color: var(--green);">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            {{ t[k] }}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <form class="form" id="contact-form" novalidate
+        data-msg-required="{{ t.contact_toast_required }}"
+        data-msg-success="{{ t.contact_toast_success }}"
+        data-label-send="{{ t.contact_form_submit }}"
+        data-label-sending="{{ t.contact_form_sending }}">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="form-name">{{ t.contact_form_name }}</label>
+            <input class="form-input" id="form-name" name="name" placeholder="{{ t.contact_form_name_ph }}" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-email">{{ t.contact_form_email }}</label>
+            <input class="form-input" id="form-email" name="email" type="email" placeholder="{{ t.contact_form_email_ph }}" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="form-subject">{{ t.contact_form_subject }}</label>
+          <input class="form-input" id="form-subject" name="subject" placeholder="{{ t.contact_form_subject_ph }}"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="form-message">{{ t.contact_form_message }}</label>
+          <textarea class="form-textarea" id="form-message" name="message" placeholder="{{ t.contact_form_message_ph }}" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-icon" id="form-submit">
+          <span class="btn-label">{{ t.contact_form_submit }}</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast" hidden>
+    <span class="dot"></span>
+    <span id="toast-message">{{ t.contact_toast_success }}</span>
+  </div>
+</section>
+
+<style>@keyframes spin { to { transform: rotate(360deg); } } .spinning { animation: spin 1s linear infinite; }</style>

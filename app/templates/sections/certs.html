@@ -1,0 +1,48 @@
+<section id="certs">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <div class="kicker">{{ t.certs_kicker }}</div>
+        <h2 class="section-title">{{ t.certs_title_l1 }}<br/>{{ t.certs_title_l2 }}</h2>
+      </div>
+      <div class="section-meta">
+        <div>{{ t.certs_meta_verified }} <span class="v">{{ certifications | length }}</span></div>
+        <div>{{ t.certs_meta_badges }} <span class="v">{{ achievements | length }}</span></div>
+      </div>
+    </div>
+
+    <div class="cert-grid">
+      {% for c in certifications %}
+      <div class="cert reveal">
+        <div class="cert-logo">{{ c.logo }}</div>
+        <div class="cert-body">
+          <h4 class="cert-title">{{ c.title }}</h4>
+          <div class="cert-issuer">{{ c.issuer }}</div>
+          <div class="cert-date">{{ c.date }}</div>
+        </div>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-2);">
+          <path d="M7 17L17 7M17 7H8M17 7V16"/>
+        </svg>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="achievements">
+      {% for a in achievements %}
+      <div class="ach reveal">
+        <svg class="ach-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          {% if a.kind == 'award' %}
+            <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4z"/><path d="M7 5H4v2a3 3 0 003 3M17 5h3v2a3 3 0 01-3 3"/>
+          {% elif a.kind == 'patent' %}
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13l2 2 4-4"/>
+          {% elif a.kind == 'talk' %}
+            <path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8"/>
+          {% endif %}
+        </svg>
+        <h4 class="ach-title">{{ a.title }}</h4>
+        <p class="ach-desc">{{ a.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

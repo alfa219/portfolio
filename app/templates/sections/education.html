@@ -1,0 +1,79 @@
+<section id="education">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <div class="kicker">{{ t.education_kicker }}</div>
+        <h2 class="section-title">{{ t.education_title_l1 }}<br/>{{ t.education_title_l2 }}</h2>
+      </div>
+      <div class="section-meta">
+        <div>{{ t.education_meta_degree }} <span class="v">S1</span></div>
+        <div>{{ t.education_meta_field }} <span class="v">EE / CE</span></div>
+      </div>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-card edu-degree reveal">
+        <div class="edu-card-head">
+          <div class="edu-badge">{{ education.degree.badge }}</div>
+          <div class="edu-year">{{ education.degree.year_range }}</div>
+        </div>
+        <h3 class="edu-degree-title">{{ education.degree.title }}</h3>
+        <div class="edu-field">{{ education.degree.field }}</div>
+        <div class="edu-uni">{{ education.degree.university }}</div>
+
+        <div class="edu-meta-row">
+          <div class="edu-meta">
+            <div class="edu-meta-label">{{ t.education_gpa }}</div>
+            <div class="edu-meta-value">{{ education.degree.gpa }} <span class="edu-meta-dim">/ {{ education.degree.gpa_max }}</span></div>
+          </div>
+          <div class="edu-meta">
+            <div class="edu-meta-label">{{ t.education_concentration }}</div>
+            <div class="edu-meta-value">{{ education.degree.concentration }}</div>
+          </div>
+          <div class="edu-meta">
+            <div class="edu-meta-label">{{ t.education_status }}</div>
+            <div class="edu-meta-value">{{ education.degree.status }} <span class="edu-meta-dim">{{ education.degree.status_note }}</span></div>
+          </div>
+        </div>
+
+        <div class="edu-thesis">
+          <div class="edu-thesis-label">{{ t.education_thesis_label }}</div>
+          <div class="edu-thesis-title">&ldquo;{{ education.degree.thesis.title }}&rdquo;</div>
+          <div class="edu-thesis-meta">{{ t.education_thesis_advisor }} {{ education.degree.thesis.advisor }} · {{ t.education_thesis_grade }} {{ education.degree.thesis.grade }}</div>
+        </div>
+      </div>
+
+      <div class="edu-card edu-courses reveal">
+        <div class="edu-courses-head">
+          <h4 class="edu-courses-title">{{ t.education_relevant }}</h4>
+          <span class="edu-courses-count">{{ education.coursework | length }} {{ t.education_subjects }}</span>
+        </div>
+        <div class="course-list">
+          {% for c in education.coursework %}
+          <div class="course-row">
+            <span class="course-code">{{ c.code }}</span>
+            <span class="course-name">{{ c.name }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="org-block">
+      <div class="org-head">
+        <h3 class="org-title">{{ t.education_org_title }}</h3>
+        <span class="org-tag">{{ t.education_org_tag }}</span>
+      </div>
+      <div class="org-grid">
+        {% for o in education.organizations %}
+        <div class="org-card reveal">
+          <div class="org-period">{{ o.period }}</div>
+          <h4 class="org-role">{{ o.role }}</h4>
+          <div class="org-name">{{ o.org }}</div>
+          <p class="org-desc">{{ o.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

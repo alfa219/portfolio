@@ -1,0 +1,29 @@
+# venv
+venv/
+.venv/
+env/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Env
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Raw project photos (unprocessed originals — never commit)
+app/static/images/projects/*/raw/*
+!app/static/images/projects/*/raw/.gitkeep
+!app/static/images/projects/*/raw/README.md

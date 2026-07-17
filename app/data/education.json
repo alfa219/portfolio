@@ -1,0 +1,53 @@
+{
+  "degree": {
+    "badge": "S1",
+    "year_range": "2023 — Present",
+    "title": "Bachelor of Computer Engineering (S.Kom)",
+    "field": "Teknik Komputer",
+    "university": "Universitas Amikom Yogyakarta",
+    "gpa": "[X.XX]",
+    "gpa_max": "4.00",
+    "concentration": "Internet of Things",
+    "status": "Active Student",
+    "status_note": "Semester 6 · expected 2027",
+    "thesis": {
+      "title": "In planning — topic to be confirmed (IoT / Embedded Systems focus)",
+      "advisor": "TBD",
+      "grade": "—"
+    }
+  },
+  "coursework": [
+    { "code": "IOT401", "name": "Internet of Things" },
+    { "code": "EMB301", "name": "Embedded Systems Design" },
+    { "code": "MCU201", "name": "Microprocessor Architecture" },
+    { "code": "NET302", "name": "Computer Networks" },
+    { "code": "DSA201", "name": "Data Structures & Algorithms" },
+    { "code": "OOP201", "name": "Object-Oriented Programming" },
+    { "code": "PCB301", "name": "PCB Design & Fabrication" },
+    { "code": "WCM402", "name": "Wireless Communication" },
+    { "code": "AI301",  "name": "Artificial Intelligence" },
+    { "code": "MAD301", "name": "Mobile Application Development" },
+    { "code": "SWE201", "name": "Software Engineering" },
+    { "code": "DAT302", "name": "Database Systems" }
+  ],
+  "organizations": [
+    {
+      "period": "2024 — Present",
+      "role": "Hardware Division Lead",
+      "org": "IoT Study Club · Universitas Amikom Yogyakarta",
+      "desc": "Coordinated weekly workshops for 25+ members on ESP32 and Arduino fundamentals. Organized two internal hackathons."
+    },
+    {
+      "period": "2024 — 2025",
+      "role": "Member · Engineering Student Association",
+      "org": "HMTI · Universitas Amikom Yogyakarta",
+      "desc": "Active in the academic division. Co-organized a campus-wide tech competition with 60+ participants."
+    },
+    {
+      "period": "2023 — 2024",
+      "role": "Volunteer · STEM Outreach Program",
+      "org": "Fakultas Ilmu Komputer · Universitas Amikom Yogyakarta",
+      "desc": "Taught basic electronics and microcontroller programming to 40+ high-school students across four sessions."
+    }
+  ]
+}

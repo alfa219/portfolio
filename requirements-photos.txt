@@ -1,0 +1,13 @@
+# Dependencies untuk scripts/process_photos.py
+# (face blur + resize + WebP conversion)
+#
+# Install:
+#   pip install -r requirements-photos.txt
+#
+# Versi tidak di-pin agar pip ambil wheel terbaru yang kompatibel
+# dengan versi Python di venv (proyek ini Python 3.14).
+
+Pillow>=11.0.0
+opencv-python>=4.10.0
+numpy>=2.0.0
+pillow-heif>=0.18.0

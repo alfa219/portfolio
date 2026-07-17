@@ -1,0 +1,14 @@
+# ── Core Framework ────────────────────────────────────────
+Flask==3.0.3
+Werkzeug==3.0.3
+
+# ── Template & Config ─────────────────────────────────────
+Jinja2==3.1.4
+python-dotenv==1.0.1
+MarkupSafe==2.1.5
+
+# ── Static Files (production) ─────────────────────────────
+whitenoise==6.7.0
+
+# ── WSGI Server (production) ──────────────────────────────
+gunicorn==22.0.0

@@ -1,0 +1,29 @@
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <div class="kicker">{{ t.testimonials_kicker }}</div>
+        <h2 class="section-title">{{ t.testimonials_title_l1 }}<br/>{{ t.testimonials_title_l2 }}</h2>
+      </div>
+      <div class="section-meta">
+        <div>{{ t.testimonials_meta_sample }} <span class="v">{{ testimonials | length }} / 14</span></div>
+      </div>
+    </div>
+
+    <div class="testimonial-grid">
+      {% for t in testimonials %}
+      <div class="testimonial reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <p>{{ t.quote }}</p>
+        <div class="testi-author">
+          <div class="testi-avatar">{{ t.initials }}</div>
+          <div>
+            <div class="testi-name">{{ t.name }}</div>
+            <div class="testi-role">{{ t.role }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

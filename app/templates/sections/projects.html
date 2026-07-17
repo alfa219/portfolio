@@ -1,0 +1,89 @@
+{% from 'components/project_thumb.html' import project_thumb, status_class, status_label %}
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <div class="kicker">{{ t.projects_kicker }}</div>
+        <h2 class="section-title">{{ t.projects_title_l1 }}<br/>{{ t.projects_title_l2 }}</h2>
+        <p class="section-sub">{{ t.projects_sub }}</p>
+      </div>
+      <div class="section-meta">
+        <div>{{ t.projects_meta_viewing }} <span class="v">{{ projects | length }} / 12</span></div>
+        <div>{{ t.projects_meta_filter }} <span class="v">[all]</span></div>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      {% for p in projects %}
+        <article class="project-card reveal{% if p.feat %} feat{% endif %}"
+          data-project="{{ p.id }}"
+          tabindex="0" role="button"
+          aria-label="Open {{ p.title }} case study">
+          <div class="project-thumb">
+            {{ project_thumb(p.kind) }}
+            <div class="project-thumb-overlay"></div>
+            <span class="project-badge {{ status_class(p.status) }}">
+              <span class="dot"></span>{{ status_label(p.status, t) }}
+            </span>
+            <span class="project-id">{{ p.id }}</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">{{ p.title }}</h3>
+            <p class="project-desc">{{ p.desc }}</p>
+            <div class="project-stack">
+              {% for s in p.stack %}<span class="pill">{{ s }}</span>{% endfor %}
+            </div>
+            <div class="project-actions">
+              <span class="proj-link primary">
+                {{ t.projects_read_case }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <template id="project-modal-tpl">
+    <div class="modal-overlay" data-modal>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" aria-label="{{ t.projects_modal_close }}" data-close>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="modal-hero" data-hero></div>
+        <div class="modal-body" data-body></div>
+      </div>
+    </div>
+  </template>
+
+  <script type="application/json" id="projects-data">{{ projects | tojson }}</script>
+  <script type="application/json" id="projects-i18n">{{ {
+    'role': t.projects_modal_role,
+    'duration': t.projects_modal_duration,
+    'stack': t.projects_modal_stack,
+    'challenge': t.projects_modal_challenge,
+    'approach': t.projects_modal_approach,
+    'outcome': t.projects_modal_outcome,
+    'photos': t.projects_modal_photos,
+    'photo_close': t.projects_modal_photo_close,
+    'github': t.projects_modal_github,
+    'demo': t.projects_modal_demo
+  } | tojson }}</script>
+  <script type="application/json" id="projects-static-base">{{ url_for('static', filename='images/projects/') | tojson }}</script>
+
+  <div style="display:none;">
+    {% for p in projects %}
+    <div data-project-hero="{{ p.id }}">
+      {{ project_thumb(p.kind) }}
+      <div class="modal-hero-meta">
+        <span class="project-badge {{ status_class(p.status) }}">
+          <span class="dot"></span>{{ status_label(p.status, t) }}
+        </span>
+        <span class="project-id">{{ p.id }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

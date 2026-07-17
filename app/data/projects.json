@@ -1,0 +1,212 @@
+[
+  {
+    "kind": "accessibility",
+    "id": "PRJ_001",
+    "feat": true,
+    "status": "live",
+    "title": "VIBRADoor — Wireless Vibrating Doorbell for Deaf Students",
+    "desc": "Sistem bel pintu nirkabel berbasis ESP32 + MQTT untuk siswa tuna rungu — proyek commissioned. Tombol bel di pintu kelas mengirim notifikasi getaran ke gelang wearable yang dipakai siswa. Satu pasang dideploy dan masih beroperasi harian di SLB Damayanti Sleman, Yogyakarta. Total BOM Rp 366.000 per pasang.",
+    "stack": ["ESP32 DevKit", "MQTT", "Mosquitto", "LiPo 2000mAh", "TP4056", "Vibration Motor 10mm", "Custom PCB"],
+    "photo_folder": "vibradoor",
+    "photos": [
+      {
+        "file": "01-dokumetasi.webp",
+        "caption": "Siswa SLB Damayanti menggunakan VIBRADoor di kelas — wearable di pergelangan tangan, transmitter di meja. Deployment harian sejak 2025."
+      }
+    ],
+    "detail": {
+      "role": "Firmware Engineer & Hardware Assembly · 2-person team",
+      "duration": "2025",
+      "challenge": "Proyek commissioned dari pihak yang ingin membuat alat khusus untuk siswa tuna rungu di SLB: siswa tidak dapat mendengar bel pintu kelas, menyebabkan miskomunikasi antara guru/petugas dengan siswa dan siswa sering tidak menyadari ada yang ingin masuk kelas. Solusi alternatif konvensional seperti lampu kedip tidak selalu terlihat saat siswa fokus pada tugas atau membelakangi pintu.",
+      "approach": [
+        "Sebagai bagian dari tim 2 orang, kontribusi utama saya adalah firmware ESP32 (Arduino framework) dan perakitan hardware kedua perangkat.",
+        "Arsitektur dua node ESP32 DevKit yang berkomunikasi via MQTT broker Mosquitto self-host: satu sebagai pemancar (push-button R13-507 di pintu kelas, power adaptor 5V/1A dengan LM2598 step-down dan LED indikator), satu sebagai gelang wearable (ESP32 + LiPo 2000mAh + modul charger TP4056 + DC vibration motor 10mm dalam enclosure plastik).",
+        "Memilih MQTT (pub/sub) daripada pairing langsung seperti ESP-NOW — satu tombol bisa publish ke banyak gelang sekaligus kalau di kemudian hari sekolah ingin menambah unit, dan status koneksi tiap node bisa di-monitor lewat broker.",
+        "Custom PCB lubang double-sided dengan JST connector 2.54mm dan pin header untuk modularitas: komponen wearable bisa di-swap atau di-service tanpa solder ulang — penting untuk maintenance di lapangan.",
+        "Power management gelang: LiPo 2000mAh dengan TP4056 charging via Jack DC 5.5×2.1mm — ketahanan satu hari sekolah penuh per charge, ringan & aman dipakai siswa.",
+        "Total BOM Rp 366.000 per pasang (transmitter + wearable) — affordable & sustainable untuk replikasi kalau ada permintaan lanjutan."
+      ],
+      "outcome": [
+        "Satu pasang (1 transmitter + 1 wearable) berhasil dideploy dan masih beroperasi harian di SLB Damayanti Sleman, Yogyakarta sejak 2025 — bukti reliability di lingkungan riil, bukan hanya prototype lab.",
+        "Mengurangi friction komunikasi antara guru/staff dengan siswa tuna rungu: siswa langsung merasakan getaran di pergelangan tangan tanpa harus melihat ke arah pintu.",
+        "Arsitektur MQTT scalable: kalau pihak SLB ingin menambah pasangan untuk pintu/siswa lain, cukup provisioning ke topic yang sama tanpa ubah firmware base.",
+        "Bukti commissioned-trust: dipercaya orang lain untuk membangun alat IoT custom dengan kebutuhan spesifik, bukan sekadar proyek akademik."
+      ],
+      "links": {
+        "github": "#",
+        "demo": "#"
+      }
+    }
+  },
+  {
+    "kind": "ev_iot",
+    "id": "PRJ_002",
+    "feat": true,
+    "status": "live",
+    "title": "PAYCAY — Smart EV Charging Station (IoT + Web)",
+    "desc": "Sistem manajemen Stasiun Pengisian Kendaraan Listrik (SPKLU) end-to-end: firmware ESP32 (PZEM-004T + RC522 RFID + relay AC), backend Flask + Firebase Realtime DB, web dashboard real-time via Socket.IO, deployed di Microsoft Azure App Service.",
+    "stack": ["ESP32", "PZEM-004T", "RC522 RFID", "Flask", "Firebase RTDB", "Socket.IO", "Azure"],
+    "photo_folder": "paycay-iot",
+    "photos": [
+      {
+        "file": "01-img-5789.webp",
+        "caption": "Dokumentasi produk PAYCAY IoT — view 1"
+      },
+      {
+        "file": "02-img-5790.webp",
+        "caption": "Dokumentasi produk PAYCAY IoT — view 2"
+      },
+      {
+        "file": "03-img-5791.webp",
+        "caption": "Dokumentasi produk PAYCAY IoT — view 3"
+      }
+    ],
+    "detail": {
+      "role": "Solo Developer · IoT + Backend + Web",
+      "duration": "Active — 2025–2026",
+      "challenge": "Membangun infrastruktur SPKLU yang otomatis tanpa operator: ESP32 di stasiun harus membaca sensor energi & RFID, mengontrol relay AC, dan sinkron dengan dashboard admin/user di web — semuanya real-time tanpa perlu polling, dan dapat diakses dari mana saja.",
+      "approach": [
+        "Firmware ESP32 (Arduino) menggabungkan PZEM-004T (V/I/P/E), RC522 RFID 13.56 MHz untuk tap-to-start, LCD 16x2 sebagai status lokal, dan relay 10A untuk kontrol daya AC.",
+        "Backend Flask dengan service layer berbasis Abstract Base Class (DatabaseInterface) — memudahkan swap implementasi DB; decorator @login_required & @admin_required untuk authorization multi-role.",
+        "Flask-SocketIO (gevent worker) menyiarkan sensor update ke browser secara live; Firebase Realtime DB menyimpan state stasiun yang bisa dibaca firmware maupun web.",
+        "Deploy di Azure App Service (region Indonesia Central) dengan gunicorn + GeventWebSocketWorker, GitHub Actions untuk CI/CD; ESP32 captive-portal AP untuk setup WiFi awal."
+      ],
+      "outcome": [
+        "Sistem live di paycay-app.azurewebsites.net dengan dashboard admin (manajemen stasiun & user, statistik) dan user (live charging, history, top-up).",
+        "Auto balance deduction berdasarkan kWh dari PZEM-004T; remote start/stop via web tanpa harus hadir di stasiun.",
+        "Konsep Python lanjut diterapkan: OOP, ABC, decorators, type hints, design patterns (Singleton, Factory, Strategy), WebSocket real-time.",
+        "Skema API REST lengkap untuk session lifecycle: start → update (live sensor) → end, plus authentication via RFID UID."
+      ],
+      "links": {
+        "github": "https://github.com/alfa219/paycay-",
+        "demo": "https://paycay-app-frczdrawfvechedj.indonesiacentral-01.azurewebsites.net"
+      }
+    }
+  },
+  {
+    "kind": "ev",
+    "id": "PRJ_003",
+    "status": "live",
+    "title": "PAYCAY Mobile — Companion App",
+    "desc": "Aplikasi mobile Flutter pendamping sistem PAYCAY SPKLU. Monitor sensor ESP32 (PZEM-004T) real-time via Firebase RTDB, digital wallet, dan admin panel — dua sisi pengguna User & Admin.",
+    "stack": ["Flutter", "Firebase RTDB", "Firestore", "Riverpod", "GoRouter", "FCM"],
+    "photo_folder": "paycay-mobile",
+    "photos": [],
+    "detail": {
+      "role": "Solo Developer · Mobile (companion to IoT + Web)",
+      "duration": "Active — 2025–2026",
+      "challenge": "Membawa seluruh fitur PAYCAY ke mobile: monitor sensor stasiun real-time, kelola sesi pengisian, wallet & top-up, dan admin approval — tanpa bergantung pada koneksi langsung Bluetooth/WiFi-direct antara hardware dan ponsel.",
+      "approach": [
+        "Memakai Firebase Realtime Database sebagai message broker antara ESP32 (writer sensor) dan mobile app (reader) — sejajar dengan dashboard web di PRJ_002.",
+        "Arsitektur Clean dengan Riverpod 2.x: Presentation → Services → Firebase SDKs; StreamProvider untuk RTDB/Firestore, StateNotifierProvider untuk active session yang persist via SharedPreferences.",
+        "Sensor simulator in-app sehingga aplikasi bisa di-test & didemo sebelum stasiun fisik tersedia; simulator dimatikan saat ESP32 online tanpa ubah UI.",
+        "Atomic Firestore transaction untuk saldo (top-up & charging cost) menjaga konsistensi pada concurrent write."
+      ],
+      "outcome": [
+        "Dual-role lengkap (User & Admin) dengan polish UI: shimmer loading, empty state, pull-to-refresh.",
+        "Session recovery: app dapat di-kill tengah pengisian, dibuka lagi, banner sesi aktif otomatis muncul dengan elapsed time konsisten.",
+        "Auto-stop saat saldo habis berfungsi end-to-end (sensor poll 2 detik → cost ≥ balance → stop relay command via RTDB).",
+        "Siap di-pair dengan firmware ESP32 di PRJ_002 — skema data RTDB/Firestore sudah identik."
+      ],
+      "links": {
+        "github": "https://github.com/alfa219/app-paycay",
+        "demo": "#"
+      }
+    }
+  },
+  {
+    "kind": "env",
+    "id": "PRJ_004",
+    "status": "live",
+    "title": "Environmental Air Quality Station",
+    "desc": "Personal build: outdoor PM2.5 and AQI station with a public dashboard, sampling every five minutes and posting daily summaries.",
+    "stack": ["ESP32", "BME680", "LoRaWAN", "ThingsBoard"],
+    "detail": {
+      "role": "Solo Builder · Personal Project",
+      "duration": "Ongoing since 2023",
+      "challenge": "Wanted real-time air quality data for our neighborhood — public sources have 1-hour latency.",
+      "approach": [
+        "ESP32 + BME680 + PMS7003 outdoor enclosure (IP65 printed shell).",
+        "LoRaWAN uplink via The Things Network for low-power 5-minute reporting.",
+        "ThingsBoard dashboard with public read-only access."
+      ],
+      "outcome": [
+        "Three nodes live across the neighborhood with 8-month uptime.",
+        "Featured on Hackster.io front page in March 2025.",
+        "Open-sourced PCB design and enclosure STL files."
+      ],
+      "links": { "github": "#", "demo": "#" }
+    }
+  },
+  {
+    "kind": "agri",
+    "id": "PRJ_005",
+    "status": "wip",
+    "title": "Smart Agriculture Irrigation",
+    "desc": "Hackathon project, now in active development: soil-moisture nodes triggering irrigation valves based on threshold readings and weather-API forecasts.",
+    "stack": ["RPi Pico", "Zigbee", "PostgreSQL", "Open-Meteo API"],
+    "detail": {
+      "role": "Team Lead · Campus Innovation Challenge",
+      "duration": "36-hour hackathon + ongoing iteration",
+      "challenge": "Smallholder farmers irrigate on schedule, not on demand — wasting water in rainy weeks.",
+      "approach": [
+        "Capacitive soil-moisture sensor mesh on RPi Pico nodes, Zigbee uplink.",
+        "PostgreSQL backend joining moisture readings with Open-Meteo forecasts.",
+        "Solenoid valve controller decides irrigation only if 24h forecast < 5mm rain."
+      ],
+      "outcome": [
+        "Finalist at the Campus Innovation Challenge, 38 competing teams.",
+        "Simulated 41% water reduction in a 2-month dry-season test.",
+        "Currently being adapted for a real 2-hectare pilot plot."
+      ],
+      "links": { "github": "#", "demo": "#" }
+    }
+  },
+  {
+    "kind": "wearable",
+    "id": "PRJ_006",
+    "status": "archived",
+    "title": "Wearable Health Tracker (Coursework)",
+    "desc": "Course assignment: wristband prototype with PPG heart-rate sensor and BLE sync to a companion app. Demonstrated working at the engineering showcase.",
+    "stack": ["nRF52", "BLE", "Flutter", "Firebase"],
+    "detail": {
+      "role": "Coursework Project · Embedded Systems",
+      "duration": "1 semester (3 months)",
+      "challenge": "Demonstrate full BLE + sensor stack as a wearable form factor for the embedded-systems course.",
+      "approach": [
+        "nRF52 dev board with PPG sensor (MAX30102) on a custom carrier PCB.",
+        "BLE GATT service exposing heart-rate and battery characteristics.",
+        "Flutter companion app pairing and logging to Firebase."
+      ],
+      "outcome": [
+        "Received an A grade and was selected for the engineering showcase.",
+        "Wrote a tutorial that has been used as supplementary lab reading."
+      ],
+      "links": { "github": "#", "demo": "#" }
+    }
+  },
+  {
+    "kind": "asset",
+    "id": "PRJ_007",
+    "status": "live",
+    "title": "LoRaWAN Asset Tracker",
+    "desc": "Personal exploration: a single LoRaWAN tracker node with geofence alerts, integrated with The Things Network and a simple map dashboard.",
+    "stack": ["RAK4630", "LoRaWAN", "TTN", "MapLibre"],
+    "detail": {
+      "role": "Solo Builder · Personal Project",
+      "duration": "2 months",
+      "challenge": "Explore LoRaWAN economics — can a tracker really cost less than $2/month telemetry?",
+      "approach": [
+        "RAK4630 module with GPS, accelerometer wake-on-motion to save power.",
+        "Joined TTN community network, used Cayenne LPP for compact payloads.",
+        "MapLibre frontend with geofence polygons drawn directly on the map."
+      ],
+      "outcome": [
+        "Achieved 14 months projected battery life on a single 18650 cell.",
+        "Single-node telemetry cost: well under target at $0.30/month.",
+        "Open-sourced for anyone wanting a starter LoRaWAN asset tracker."
+      ],
+      "links": { "github": "#", "demo": "#" }
+    }
+  }
+]

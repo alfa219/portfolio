@@ -1,0 +1,31 @@
+<section id="experience">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <div class="kicker">{{ t.experience_kicker }}</div>
+        <h2 class="section-title">{{ t.experience_title_l1 }}<br/>{{ t.experience_title_l2 }}</h2>
+      </div>
+      <div class="section-meta">
+        <div>{{ t.experience_meta_nodes }} <span class="v">{{ experience | length }}</span></div>
+        <div>{{ t.experience_meta_span }} <span class="v">2022 → 2025</span></div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      {% for e in experience %}
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-meta">{{ e.year }}</div>
+        <h3 class="tl-title">{{ e.title }}</h3>
+        <div class="tl-company">{{ e.company }}</div>
+        <ul class="tl-points">
+          {% for p in e.points %}<li>{{ p }}</li>{% endfor %}
+        </ul>
+        <div class="project-stack">
+          {% for s in e.stack %}<span class="pill cyan">{{ s }}</span>{% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+<section id="about">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <div class="kicker">{{ t.about_kicker }}</div>
+        <h2 class="section-title">{{ t.about_title_l1 }}<br/>{{ t.about_title_l2 }}</h2>
+      </div>
+      <div class="section-meta">
+        <div>{{ t.about_file }} <span class="v">about.md</span></div>
+        <div>{{ t.about_updated }} 18.05.2026</div>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <div class="avatar-frame">
+          <div class="avatar-placeholder">
+            <div class="ph-glyph">◐</div>
+            <div>{{ t.about_photo_label }}</div>
+            <div style="margin-top: 4px;">1:1 · 800×800</div>
+          </div>
+        </div>
+        <div class="avatar-meta">
+          <span>ID://0xA1B2C3</span>
+          <span class="green">{{ t.about_online }}</span>
+        </div>
+      </div>
+
+      <div class="bio">
+        <p class="lead">
+          {{ t.about_lead_p1_pre }} <b>{{ config.OWNER_NAME }}</b>{{ t.about_lead_p1_post }}
+          <b>{{ t.about_lead_p1_degree }}</b> {{ t.about_lead_p1_uni }}
+        </p>
+        <p>{{ t.about_p2 }}</p>
+        <p>
+          {{ t.about_p3_pre }} <b>{{ t.about_p3_role }}</b> {{ t.about_p3_post }}
+        </p>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <div class="stat-num"><span data-counter="2027">0</span></div>
+            <div class="stat-label">{{ t.about_stat_year }}</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-num"><span data-counter="12">0</span><span class="plus">+</span></div>
+            <div class="stat-label">{{ t.about_stat_projects }}</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-num"><span data-counter="3">0</span></div>
+            <div class="stat-label">{{ t.about_stat_hackathons }}</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-num"><span data-counter="30">0</span><span class="plus">+</span></div>
+            <div class="stat-label">{{ t.about_stat_tech }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

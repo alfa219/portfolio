@@ -1,0 +1,50 @@
+{% from 'components/skill_icons.html' import skill_icon, lang_glyph %}
+
+{% set total_nodes = namespace(value=0) %}
+{% for c in skills %}{% if c.isLang %}{% set total_nodes.value = total_nodes.value + (languages | length) %}{% else %}{% set total_nodes.value = total_nodes.value + (c['items'] | length) %}{% endif %}{% endfor %}
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <div class="kicker">{{ t.skills_kicker }}</div>
+        <h2 class="section-title">{{ t.skills_title_l1 }}<br/>{{ t.skills_title_l2 }}</h2>
+        <p class="section-sub">{{ t.skills_sub }}</p>
+      </div>
+      <div class="section-meta">
+        <div>{{ t.skills_meta_total }} <span class="v">{{ total_nodes.value }}</span></div>
+        <div>{{ t.skills_meta_cats }} <span class="v">{{ skills | length }}</span></div>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      {% for c in skills %}
+        <div class="skill-cat reveal{% if c.isLang %} lang-cat{% endif %}">
+          <div class="skill-cat-head">
+            <div class="skill-cat-icon">{{ skill_icon(c.icon) }}</div>
+            <div class="skill-cat-tag">{{ c.tag }}</div>
+          </div>
+          <h3 class="skill-cat-title">{{ c.title }}</h3>
+          <p class="skill-cat-desc">{{ c.desc }}</p>
+          {% if c.isLang %}
+            <div class="lang-grid">
+              {% for l in languages %}
+              <div class="lang-card">
+                {{ lang_glyph(l.key) }}
+                <div class="lang-name">{{ l.name }}</div>
+                <div class="lang-prof"><span style="width: {{ l.prof }}%"></span></div>
+              </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="skill-pills">
+              {% for it in c['items'] %}
+                <span class="pill{% if loop.index0 < 2 %} cyan{% endif %}">{{ it }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

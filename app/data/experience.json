@@ -1,0 +1,35 @@
+[
+  {
+    "year": "2025 — Present",
+    "title": "Commissioned IoT Builder · VIBRADoor & PAYCAY",
+    "company": "Independent · Yogyakarta",
+    "points": [
+      "Built VIBRADoor wireless vibrating doorbell for deaf students at SLB Damayanti Sleman — commissioned project, one pair deployed and still running.",
+      "Developed PAYCAY EV charging station management system end-to-end: ESP32 firmware (PZEM-004T + RFID + relay), Flask backend on Azure, Firebase RTDB, plus Flutter companion app.",
+      "Took responsibility for firmware, hardware assembly, backend, and deployment across both projects."
+    ],
+    "stack": ["ESP32", "MQTT", "Flask", "Firebase", "Flutter", "Azure"]
+  },
+  {
+    "year": "2024 — 2025",
+    "title": "Lab Assistant · Embedded & IoT Practicum",
+    "company": "Universitas Amikom Yogyakarta · Computer Lab",
+    "points": [
+      "Mentored 40+ undergraduate students through ESP32 and Arduino lab modules.",
+      "Maintained lab equipment inventory and prepared weekly practicum kits.",
+      "Co-authored beginner LoRaWAN and MQTT tutorials used as supplementary reading."
+    ],
+    "stack": ["Arduino", "ESP32", "LoRaWAN", "KiCad"]
+  },
+  {
+    "year": "2023 — Present",
+    "title": "Personal Projects & Hackathons",
+    "company": "Independent Builder",
+    "points": [
+      "Self-initiated 12+ IoT projects ranging from smart-home nodes to wearable health trackers.",
+      "Participated in regional hackathons, finalist at one campus-level event.",
+      "Active contributor on GitHub with project documentation and BOMs."
+    ],
+    "stack": ["ESP32", "BLE", "Flutter", "Firebase"]
+  }
+]

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}{{ config.OWNER_NAME }} · IoT Engineer Portfolio{% endblock %}</title>
+  <meta name="description" content="{% block description %}IoT Engineer · Embedded Developer · Smart System Builder. Building the bridge between hardware and the cloud.{% endblock %}"/>
+  <meta name="author" content="{{ config.OWNER_NAME }}"/>
+  <meta name="robots" content="index, follow"/>
+
+  <meta property="og:title" content="{{ config.OWNER_NAME }} — IoT Engineer Portfolio"/>
+  <meta property="og:description" content="Building the bridge between hardware and the cloud."/>
+  <meta property="og:type" content="website"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+</head>
+<body>
+  <a href="#main" class="skip-link">{{ t.skip_to_content }}</a>
+
+  {% block cursor %}{% include 'components/cursor.html' %}{% endblock %}
+  {% block intro %}{% include 'components/intro.html' %}{% endblock %}
+  {% block nav %}{% include 'components/nav.html' %}{% endblock %}
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'components/footer.html' %}
+  {% include 'components/back_to_top.html' %}
+
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>

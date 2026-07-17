@@ -1,0 +1,5 @@
+[
+  { "tag": "TUTORIAL",   "date": "12.05.2026", "read": "8 min",  "title": "OTA updates that survive a brownout",        "excerpt": "A dual-bank firmware pattern for ESP32 that has shipped to 12,000 devices without a single brick.", "accent": "#FFFFFF", "glyph": "⟲", "label": "esp32_ota.md" },
+  { "tag": "OPINION",    "date": "03.05.2026", "read": "5 min",  "title": "MQTT is fine. Your topic design isn't.",      "excerpt": "Most IoT pipelines die at the broker. Five rules I follow for a topic tree that scales past 100k devices.", "accent": "#A3A3A3", "glyph": "#",   "label": "mqtt_topics.md" },
+  { "tag": "CASE STUDY", "date": "21.04.2026", "read": "12 min", "title": "Cutting a fleet's power budget by 64%",       "excerpt": "Profiling, sleep modes, radio scheduling — the full audit that doubled battery life on our wearable line.", "accent": "#FFFFFF", "glyph": "⚡", "label": "power_audit.md" }
+]

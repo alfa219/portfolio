@@ -1,0 +1,5 @@
+[
+  { "quote": "Diligent, curious, and one of the most self-directed students I have supervised. His IoT coursework projects show real end-to-end ownership from firmware to dashboard.", "name": "Dr. [SUPERVISOR_NAME]", "role": "Academic Advisor · Universitas Amikom Yogyakarta", "initials": "AA" },
+  { "quote": "Picked up the firmware codebase quickly and contributed test coverage that the rest of the team has continued to build on. A pleasure to onboard.",       "name": "[INTERN_MENTOR_NAME]",  "role": "Senior Engineer · [INTERNSHIP_COMPANY]", "initials": "IM" },
+  { "quote": "Reliable lab partner. Carried our hackathon team's firmware in 36 hours and stayed calm when the board wouldn't boot.",                                    "name": "[HACKATHON_TEAMMATE]",  "role": "Teammate · Campus Innovation Challenge", "initials": "HT" }
+]

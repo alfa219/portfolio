@@ -1,0 +1,58 @@
+[
+  {
+    "icon": "chip",
+    "tag": "A.HW",
+    "title": "Hardware & MCU",
+    "desc": "Boards, modules, and sensors I reach for first.",
+    "items": ["ESP32", "ESP8266", "Arduino Uno/Mega/Nano", "Raspberry Pi 3/4/5", "RPi Pico", "STM32", "NodeMCU", "BeagleBone", "DHT22", "BMP280", "MPU6050", "PIR"]
+  },
+  {
+    "icon": "signal",
+    "tag": "B.NET",
+    "title": "Communication Protocols",
+    "desc": "Wire and wireless — short range to LPWAN.",
+    "items": ["MQTT", "HTTP/REST", "WebSocket", "CoAP", "LoRaWAN", "Zigbee", "BLE", "Wi-Fi", "GSM/NB-IoT", "LTE-M", "Modbus", "RS-485"]
+  },
+  {
+    "icon": "code",
+    "tag": "C.LANG",
+    "title": "Programming Languages",
+    "desc": "From bare-metal silicon up to dashboards and PLCs.",
+    "isLang": true
+  },
+  {
+    "icon": "cloud",
+    "tag": "D.CLOUD",
+    "title": "Cloud & IoT Platforms",
+    "desc": "Where the devices report home.",
+    "items": ["AWS IoT Core", "Azure IoT Hub", "Google Cloud IoT", "ThingsBoard", "Blynk", "Adafruit IO", "Firebase RTDB"]
+  },
+  {
+    "icon": "db",
+    "tag": "E.DATA",
+    "title": "Database & Pipeline",
+    "desc": "Time-series first, then everything else.",
+    "items": ["InfluxDB", "MongoDB", "PostgreSQL", "Redis", "Apache Kafka", "Mosquitto", "HiveMQ"]
+  },
+  {
+    "icon": "wave",
+    "tag": "F.VIZ",
+    "title": "Visualization & Dashboards",
+    "desc": "Charts that wake up your on-call.",
+    "items": ["Grafana", "Node-RED", "Power BI", "React + Recharts", "D3.js"]
+  },
+  {
+    "icon": "tools",
+    "tag": "G.OPS",
+    "title": "DevOps & Tools",
+    "desc": "Build, ship, simulate, debug.",
+    "items": ["Git/GitHub", "Docker", "PlatformIO", "Arduino IDE", "KiCad", "EasyEDA", "Fritzing", "Proteus", "LTspice", "VS Code"]
+  },
+  {
+    "icon": "brain",
+    "tag": "H.SOFT",
+    "title": "Soft Skills",
+    "desc": "The parts no library ships with.",
+    "items": ["Problem Solving", "Technical Writing", "Team Collaboration", "Agile / Scrum", "Mentoring"]
+  }
+]

@@ -1,0 +1,71 @@
+{% set links = [
+  ('about', '01', t.nav_about),
+  ('education', '02', t.nav_education),
+  ('skills', '03', t.nav_skills),
+  ('projects', '04', t.nav_projects),
+  ('experience', '05', t.nav_experience),
+  ('contact', '09', t.nav_contact),
+] %}
+{% set other_lang = 'id' if lang == 'en' else 'en' %}
+{% set other_short = 'ID' if lang == 'en' else 'EN' %}
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="brand" aria-label="Home">
+      <span class="brand-glyph">⌬</span>
+      <span>{{ config.SITE_NAME }}</span>
+    </a>
+    <div class="nav-links">
+      {% for id, num, label in links %}
+        <a href="#{{ id }}" data-nav="{{ id }}"><span class="num">{{ num }}.</span>{{ label }}</a>
+      {% endfor %}
+    </div>
+    <div class="nav-right">
+      <a href="{{ url_for('main.set_lang', code=other_lang) }}"
+         class="lang-switch" title="{{ t.nav_lang_toggle }} ({{ t.lang_switch_to }})"
+         aria-label="{{ t.nav_lang_toggle }}">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+        </svg>
+        <span class="lang-switch-code">{{ other_short }}</span>
+      </a>
+      <a href="#contact" class="nav-cta">{{ t.nav_cta }}</a>
+      <button class="nav-burger" id="nav-burger" aria-label="{{ t.nav_open_menu }}" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-progress" id="nav-progress"></div>
+</nav>
+
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-panel" role="dialog" aria-label="Navigation">
+    <div class="nav-drawer-head">
+      <span class="brand-glyph">⌬</span>
+      <button class="nav-drawer-close" id="nav-drawer-close" aria-label="{{ t.nav_close_menu }}">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="nav-drawer-links">
+      {% for id, num, label in links %}
+        <a href="#{{ id }}" data-nav="{{ id }}">
+          <span class="num">{{ num }}</span>
+          <span class="lbl">{{ label }}</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      {% endfor %}
+      <a href="{{ url_for('main.set_lang', code=other_lang) }}" class="lang-switch-drawer">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+        </svg>
+        <span class="lbl">{{ t.lang_switch_to }}</span>
+        <span class="num">{{ other_short }}</span>
+      </a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">{{ t.nav_get_in_touch }}</a>
+    </div>
+  </div>
+</div>
