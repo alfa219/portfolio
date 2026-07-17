@@ -28,24 +28,5 @@
     { "code": "SWE201", "name": "Software Engineering" },
     { "code": "DAT302", "name": "Database Systems" }
   ],
-  "organizations": [
-    {
-      "period": "2024 — Present",
-      "role": "Hardware Division Lead",
-      "org": "IoT Study Club · Universitas Amikom Yogyakarta",
-      "desc": "Coordinated weekly workshops for 25+ members on ESP32 and Arduino fundamentals. Organized two internal hackathons."
-    },
-    {
-      "period": "2024 — 2025",
-      "role": "Member · Engineering Student Association",
-      "org": "HMTI · Universitas Amikom Yogyakarta",
-      "desc": "Active in the academic division. Co-organized a campus-wide tech competition with 60+ participants."
-    },
-    {
-      "period": "2023 — 2024",
-      "role": "Volunteer · STEM Outreach Program",
-      "org": "Fakultas Ilmu Komputer · Universitas Amikom Yogyakarta",
-      "desc": "Taught basic electronics and microcontroller programming to 40+ high-school students across four sessions."
-    }
-  ]
+  "organizations": []
 }

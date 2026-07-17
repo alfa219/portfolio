@@ -61,6 +61,7 @@
       </div>
     </div>
 
+    {% if education.organizations %}
     <div class="org-block">
       <div class="org-head">
         <h3 class="org-title">{{ t.education_org_title }}</h3>
@@ -77,5 +78,6 @@
         {% endfor %}
       </div>
     </div>
+    {% endif %}
   </div>
 </section>

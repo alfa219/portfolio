@@ -38,10 +38,9 @@
     "company": "Universitas Amikom Yogyakarta · Computer Lab",
     "points": [
       "Assist the Data Acquisition practicum (semester 6, IoT concentration): guiding students through sensor reading, data logging, and telemetry on ESP32.",
-      "Prepare weekly practicum materials and help debug student wiring and firmware during lab sessions.",
-      "Co-authored beginner MQTT tutorials used as supplementary reading."
+      "Prepare weekly practicum materials and help debug student wiring and firmware during lab sessions."
     ],
-    "stack": ["ESP32", "Arduino", "MQTT"]
+    "stack": ["ESP32", "Arduino"]
   },
   {
     "year": "2025",
