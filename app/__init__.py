@@ -1,6 +1,6 @@
 from flask import Flask, g, request
 from whitenoise import WhiteNoise
-from .config import config
+from .config import config, INSECURE_DEFAULT_SECRET
 from . import i18n
 
 
@@ -9,6 +9,12 @@ def create_app(env: str = "development") -> Flask:
     app.config.from_object(config[env])
 
     if env == "production":
+        if app.config.get("SECRET_KEY") in (None, "", INSECURE_DEFAULT_SECRET):
+            raise RuntimeError(
+                "SECRET_KEY is unset or still the insecure development default. "
+                "Set a strong random SECRET_KEY (e.g. `python -c \"import secrets; "
+                "print(secrets.token_hex(32))\"`) before running in production."
+            )
         app.wsgi_app = WhiteNoise(
             app.wsgi_app,
             root="app/static/",

@@ -1,6 +1,6 @@
 # Portfolio IoT Engineer — Python · Flask
 
-Portfolio website Single-Page (multi-section) yang dibangun dengan **Flask 3 + Jinja2 + Vanilla JS** sesuai PRD `PRD-Technical-Flask-IoT-Portfolio.md`. UI mengacu pada referensi React yang ada di root repo (`Portfolio.html`, `*.jsx`, `styles.css`), dikonversi penuh ke Jinja2 SSR + progressive enhancement.
+Portfolio website Single-Page (multi-section) yang dibangun dengan **Flask 3 + Jinja2 + Vanilla JS**. Semua HTML dirender di server (SSR) dengan progressive enhancement lewat vanilla JS.
 
 > Saat ini fokus pengembangan: **frontend** (templates, CSS, JS interaction). Backend hanya routing dasar untuk merender halaman.
 
