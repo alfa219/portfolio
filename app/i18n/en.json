@@ -52,7 +52,7 @@
   "about_p3_pre": "I am actively looking for my",
   "about_p3_role": "first internship or entry-level role",
   "about_p3_post": "as a Junior IoT or Embedded Engineer. I learn quickly, document my work, and approach every project with rigor. Open to internship, freelance, or junior opportunities anywhere in Indonesia.",
-  "about_photo_label": "[YOUR_PHOTO]",
+  "about_photo_label": "",
   "about_online": "● ONLINE",
   "about_stat_year": "Expected Graduation",
   "about_stat_projects": "Projects Completed",
@@ -78,7 +78,7 @@
   "skills_kicker": "03 // Capabilities",
   "skills_title_l1": "Full stack — from",
   "skills_title_l2": "silicon to dashboard.",
-  "skills_sub": "Eight domains, one signal path. Click any chip to see what I've shipped with it (placeholder).",
+  "skills_sub": "Eight domains, one signal path. Click any chip to see what I've shipped with it.",
   "skills_meta_total": "TOTAL_NODES:",
   "skills_meta_cats": "CATEGORIES:",
 

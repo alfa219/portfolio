@@ -22,10 +22,12 @@
         <div class="edu-uni">{{ education.degree.university }}</div>
 
         <div class="edu-meta-row">
+          {% if education.degree.gpa %}
           <div class="edu-meta">
             <div class="edu-meta-label">{{ t.education_gpa }}</div>
             <div class="edu-meta-value">{{ education.degree.gpa }} <span class="edu-meta-dim">/ {{ education.degree.gpa_max }}</span></div>
           </div>
+          {% endif %}
           <div class="edu-meta">
             <div class="edu-meta-label">{{ t.education_concentration }}</div>
             <div class="edu-meta-value">{{ education.degree.concentration }}</div>

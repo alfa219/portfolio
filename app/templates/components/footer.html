@@ -18,8 +18,8 @@
       <div class="footer-col">
         <h4>{{ t.footer_more }}</h4>
         <a href="#certs">{{ t.footer_certs }}</a>
-        <a href="#blog">{{ t.footer_articles }}</a>
-        <a href="#testimonials">{{ t.footer_testimonials }}</a>
+        {% if posts %}<a href="#blog">{{ t.footer_articles }}</a>{% endif %}
+        {% if testimonials %}<a href="#testimonials">{{ t.footer_testimonials }}</a>{% endif %}
         <a href="#contact">{{ t.footer_contact }}</a>
       </div>
       <div class="footer-col">

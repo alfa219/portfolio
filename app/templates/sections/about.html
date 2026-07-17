@@ -16,7 +16,7 @@
         <div class="avatar-frame">
           <div class="avatar-placeholder">
             <div class="ph-glyph">◐</div>
-            <div>{{ t.about_photo_label }}</div>
+            {% if t.about_photo_label %}<div>{{ t.about_photo_label }}</div>{% endif %}
             <div style="margin-top: 4px;">1:1 · 800×800</div>
           </div>
         </div>
