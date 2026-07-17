@@ -364,6 +364,21 @@
           </figure>`;
       }).join('') : '';
 
+      const links = detail.links || {};
+      const isReal = (u) => u && u !== '#';
+      const githubBtn = isReal(links.github) ? `
+          <a href="${links.github}" class="btn btn-ghost btn-icon" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.64.71 1.03 1.61 1.03 2.71 0 3.84-2.34 4.68-4.57 4.93.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12c0-5.52-4.48-10-10-10z"/></svg>
+            ${escapeHTML(labels.github)}
+          </a>` : '';
+      const demoBtn = isReal(links.demo) ? `
+          <a href="${links.demo}" class="btn btn-primary btn-icon" target="_blank" rel="noopener">
+            ${escapeHTML(labels.demo)}
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </a>` : '';
+      const actionsHTML = (githubBtn || demoBtn)
+        ? `<div class="modal-actions">${githubBtn}${demoBtn}</div>` : '';
+
       body.innerHTML = `
         <h2 class="modal-title" id="modal-title">${escapeHTML(project.title)}</h2>
         <p class="modal-desc">${escapeHTML(project.desc)}</p>
@@ -407,16 +422,7 @@
             <div class="modal-gallery">${galleryHTML}</div>
           </div>` : ''}
 
-        <div class="modal-actions">
-          <a href="${(detail.links && detail.links.github) || '#'}" class="btn btn-ghost btn-icon">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.64.71 1.03 1.61 1.03 2.71 0 3.84-2.34 4.68-4.57 4.93.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12c0-5.52-4.48-10-10-10z"/></svg>
-            ${escapeHTML(labels.github)}
-          </a>
-          <a href="${(detail.links && detail.links.demo) || '#'}" class="btn btn-primary btn-icon">
-            ${escapeHTML(labels.demo)}
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </a>
-        </div>
+        ${actionsHTML}
       `;
 
       node.querySelector('[data-close]').addEventListener('click', close);
@@ -501,28 +507,25 @@
     };
 
     const msgRequired = form.dataset.msgRequired || 'Please complete the required fields.';
-    const msgSuccess = form.dataset.msgSuccess || 'Message sent. You will receive a response within 24 hours.';
-    const labelSend = form.dataset.labelSend || 'Send Message';
-    const labelSending = form.dataset.labelSending || 'Transmitting…';
+    const msgSuccess = form.dataset.msgSuccess || 'Opening your email app…';
+    const mailto = form.dataset.mailto || '';
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = new FormData(form);
-      if (!data.get('name') || !data.get('email') || !data.get('message')) {
+      const name = (data.get('name') || '').toString().trim();
+      const email = (data.get('email') || '').toString().trim();
+      const subject = (data.get('subject') || '').toString().trim();
+      const message = (data.get('message') || '').toString().trim();
+      if (!name || !email || !message || !mailto) {
         showToast(msgRequired);
         return;
       }
-      const btn = document.getElementById('form-submit');
-      const label = btn && btn.querySelector('.btn-label');
-      if (btn) btn.disabled = true;
-      if (label) label.textContent = labelSending;
-
-      setTimeout(() => {
-        showToast(msgSuccess);
-        form.reset();
-        if (btn) btn.disabled = false;
-        if (label) label.textContent = labelSend;
-      }, 1100);
+      // Honest handoff: open the visitor's own email client, pre-filled.
+      const subj = encodeURIComponent(subject || `Portfolio contact from ${name}`);
+      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+      window.location.href = `mailto:${mailto}?subject=${subj}&body=${body}`;
+      showToast(msgSuccess);
     });
 
     // Copy email button

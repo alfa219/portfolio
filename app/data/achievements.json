@@ -1,5 +1,3 @@
 [
-  { "kind": "award",  "title": "Finalist — Campus Innovation Challenge 2024", "desc": "Smart irrigation prototype, selected from 38 student teams." },
-  { "kind": "patent", "title": "Best Thesis Demo — Engineering Showcase 2025", "desc": "Recognized at the faculty graduation symposium." },
   { "kind": "talk",   "title": "Speaker — University IoT Study Club",          "desc": "\"Getting started with ESP32 and MQTT for first-year students.\"" }
 ]

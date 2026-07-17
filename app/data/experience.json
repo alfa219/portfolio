@@ -20,16 +20,5 @@
       "Co-authored beginner LoRaWAN and MQTT tutorials used as supplementary reading."
     ],
     "stack": ["Arduino", "ESP32", "LoRaWAN", "KiCad"]
-  },
-  {
-    "year": "2023 — Present",
-    "title": "Personal Projects & Hackathons",
-    "company": "Independent Builder",
-    "points": [
-      "Self-initiated 12+ IoT projects ranging from smart-home nodes to wearable health trackers.",
-      "Participated in regional hackathons, finalist at one campus-level event.",
-      "Active contributor on GitHub with project documentation and BOMs."
-    ],
-    "stack": ["ESP32", "BLE", "Flutter", "Firebase"]
   }
 ]
