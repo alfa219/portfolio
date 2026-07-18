@@ -1,3 +1,5 @@
 [
-  { "issuer": "Cisco", "logo": "CC", "title": "CCNA (Cisco Certified Network Associate)", "date": "Completed 2024" }
+  { "issuer": "Cisco Networking Academy", "logo": "CC", "title": "CCNAv7: Introduction to Networks", "date": "Completed Aug 2024" },
+  { "issuer": "Cisco Networking Academy", "logo": "CC", "title": "CCNA: Switching, Routing & Wireless Essentials", "date": "Completed Mar 2025" },
+  { "issuer": "Cisco Networking Academy", "logo": "CC", "title": "CCNA: Enterprise Networking, Security & Automation", "date": "Completed Jul 2025" }
 ]
