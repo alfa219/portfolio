@@ -26,7 +26,7 @@
     "title": "Competition Project · PAYCAY — Smart EV Charging",
     "company": "Independent · Yogyakarta",
     "points": [
-      "Developed PAYCAY, an end-to-end smart EV charging station (SPKLU) management system for a competition — built solo across firmware, backend, web, and mobile.",
+      "Developed PAYCAY, an end-to-end smart EV charging station (SPKLU) system that won 1st place (Produk IoT) at ARCADIA 2026 — built solo across firmware, backend, web, and mobile.",
       "ESP32 firmware (PZEM-004T metering + RC522 RFID + AC relay), Flask backend with a real-time Socket.IO dashboard, Firebase Realtime DB, and a Flutter companion app.",
       "Deployed live on Microsoft Azure App Service; applied advanced Python (OOP, ABC, decorators, design patterns)."
     ],
