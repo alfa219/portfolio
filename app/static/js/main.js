@@ -1,7 +1,7 @@
 /* =====================================================================
  * Portfolio interaction layer — vanilla JS
- * Modules: cursor, intro, nav, scroll progress, reveal observer, stagger
- *          name, role rotator, counters, project modal, back-to-top,
+ * Modules: nav, scroll progress, reveal observer, stagger name,
+ *          role rotator, counters, project modal, back-to-top,
  *          smooth scroll, copy email, drawer.
  * ===================================================================== */
 
@@ -10,8 +10,6 @@
 
   const prefersReducedMotion = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const hasFinePointer = () =>
-    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   // SMIL <animate> elements ignore CSS reduced-motion rules — pause via the API.
   const pauseSvgAnimations = (root) => {
@@ -20,115 +18,6 @@
       if (typeof s.pauseAnimations === 'function') s.pauseAnimations();
     });
   };
-
-  // -----------------------------------------------------------------
-  // Custom cursor
-  // -----------------------------------------------------------------
-  function initCursor() {
-    const dot = document.getElementById('cursor-dot');
-    const ring = document.getElementById('cursor-ring');
-    if (!dot || !ring) return;
-    // Only for mouse-like pointers, and never under reduced motion —
-    // removing the nodes also avoids the endless rAF loop.
-    if (!hasFinePointer() || prefersReducedMotion()) {
-      dot.remove();
-      ring.remove();
-      return;
-    }
-
-    let mx = window.innerWidth / 2;
-    let my = window.innerHeight / 2;
-    let rx = mx, ry = my;
-
-    const onMove = (e) => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
-    };
-    const onOver = (e) => {
-      const t = e.target;
-      const hover = t && t.closest && t.closest(
-        'a, button, .skill-cat, .project-card, .stat, input, textarea, .cert, .blog-card, .ach, .testimonial, .lang-card'
-      );
-      ring.classList.toggle('hover', !!hover);
-    };
-
-    const tick = () => {
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
-      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
-      requestAnimationFrame(tick);
-    };
-    tick();
-
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseover', onOver);
-  }
-
-  // -----------------------------------------------------------------
-  // Intro overlay (modern editorial)
-  // -----------------------------------------------------------------
-  function initIntro() {
-    const intro = document.getElementById('intro-mod');
-    if (!intro) return;
-
-    // Skip instantly for reduced motion, or if seen within the last 24h.
-    let seen = false;
-    try {
-      const last = parseInt(localStorage.getItem('intro_seen_at') || '0', 10);
-      seen = Date.now() - last < 24 * 60 * 60 * 1000;
-    } catch (e) {}
-    if (seen || prefersReducedMotion()) {
-      intro.remove();
-      return;
-    }
-
-    const counterEl = document.getElementById('intro-counter');
-    const topLabels = intro.querySelectorAll('.intro-mod-label');
-    const bottomCounter = intro.querySelector('.intro-mod-counter');
-    const bottomLoc = intro.querySelector('.intro-mod-loc');
-    const hairline = intro.querySelector('.intro-mod-hairline');
-    const name = intro.querySelector('.intro-mod-name');
-    const sub = intro.querySelector('.intro-mod-sub');
-
-    const timers = [];
-    let done = false;
-    const finish = () => {
-      if (done) return;
-      done = true;
-      timers.forEach(clearTimeout);
-      intro.classList.add('gone');
-      try { localStorage.setItem('intro_seen_at', String(Date.now())); } catch (e) {}
-      setTimeout(() => intro.remove(), 700);
-    };
-
-    const dur = 1000;
-    const start = performance.now();
-    const tick = (now) => {
-      if (done) return;
-      const t = Math.min(1, (now - start) / dur);
-      const eased = 1 - Math.pow(1 - t, 3);
-      if (counterEl) {
-        counterEl.innerHTML = String(Math.floor(eased * 100)).padStart(3, '0') +
-          '<span class="intro-mod-counter-dim"> / 100</span>';
-      }
-      if (t < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-
-    timers.push(setTimeout(() => {
-      topLabels.forEach(l => l.classList.add('on'));
-      if (bottomCounter) bottomCounter.classList.add('on');
-      if (bottomLoc) bottomLoc.classList.add('on');
-      if (hairline) hairline.classList.add('on');
-    }, 120));
-    timers.push(setTimeout(() => name && name.classList.add('on'), 450));
-    timers.push(setTimeout(() => sub && sub.classList.add('on'), 950));
-    timers.push(setTimeout(finish, 1500));
-
-    // Any click or key skips straight to the page.
-    intro.addEventListener('pointerdown', finish);
-    document.addEventListener('keydown', finish, { once: true });
-  }
 
   // -----------------------------------------------------------------
   // Navigation: scroll style, active link, mobile drawer
@@ -567,8 +456,6 @@
   // -----------------------------------------------------------------
   function boot() {
     initStaggerName();   // Run before reveal so chars render
-    initIntro();
-    initCursor();
     initNav();
     initScrollProgress();
     initReveal();

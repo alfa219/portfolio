@@ -9,7 +9,7 @@
   "nav_projects": "proyek",
   "nav_experience": "pengalaman",
   "nav_contact": "kontak",
-  "nav_cta": "hire_me()",
+  "nav_cta": "Hubungi Saya",
   "nav_open_menu": "Buka menu",
   "nav_close_menu": "Tutup menu",
   "nav_get_in_touch": "Hubungi Saya",
@@ -17,10 +17,6 @@
   "skip_to_content": "Loncat ke konten",
   "meta_description": "Portofolio IoT & Embedded Systems — firmware ESP32, perakitan hardware, dan sistem yang terpasang di lapangan: presensi sekolah, EV charging, alat bantu difabel.",
 
-  "intro_label": "PORTOFOLIO — 2026",
-  "intro_label_2": "IOT · EMBEDDED · CLOUD",
-  "intro_sub": "Menjembatani perangkat keras dan cloud.",
-  "intro_location": "YOGYAKARTA · ID · GMT+7",
 
   "hero_meta_open": "TERBUKA UNTUK MAGANG & ENTRY-LEVEL",
   "hero_meta_class": "S1 TEKNIK KOMPUTER · AMIKOM",
@@ -53,8 +49,6 @@
   "about_p3_pre": "Saya terbuka untuk",
   "about_p3_role": "peran junior IoT / Embedded Engineer",
   "about_p3_post": "— magang, kontrak, maupun freelance, di mana pun di Indonesia. Saya belajar cepat, mendokumentasikan pekerjaan, dan menggarap tiap proyek dengan teliti.",
-  "about_photo_label": "",
-  "about_online": "● ONLINE",
   "about_stat_year": "Target Lulus",
   "about_stat_projects": "Proyek Dibangun",
   "about_stat_hackathons": "Deployment Live",

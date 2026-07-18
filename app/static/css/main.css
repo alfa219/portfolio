@@ -24,7 +24,6 @@ html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); f
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  cursor: none;
   background-color: var(--bg);
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
@@ -46,10 +45,8 @@ body::before {
   z-index: 0;
 }
 #root { position: relative; z-index: 1; }
-@media (max-width: 900px) { body { cursor: auto; } }
 a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: none; }
-@media (max-width: 900px) { button { cursor: pointer; } }
+button { font-family: inherit; cursor: pointer; }
 ::selection { background: var(--cyan); color: #000; }
 
 /* Safety net: nothing may cause sideways scroll on phones */
@@ -100,100 +97,6 @@ h2.section-title {
   margin: 0 0 16px;
 }
 .section-sub { color: var(--text-2); font-size: 17px; max-width: 620px; line-height: 1.6; }
-
-/* ---------- Cursor ---------- */
-.cursor-dot, .cursor-ring {
-  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%); will-change: transform;
-}
-.cursor-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 4px rgba(255,255,255,0.4); }
-.cursor-ring {
-  width: 32px; height: 32px; border: 1px solid var(--cyan-dim); border-radius: 50%;
-  transition: width .2s ease, height .2s ease, border-color .2s ease, background .2s ease;
-}
-.cursor-ring.hover { width: 56px; height: 56px; border-color: var(--cyan); background: rgba(255, 255, 255,0.08); }
-@media (max-width: 900px) { .cursor-dot, .cursor-ring { display: none; } }
-
-/* ---------- Modern Intro ---------- */
-@keyframes blink { 50% { opacity: 0; } }
-
-.intro-mod {
-  position: fixed; inset: 0; z-index: 100000;
-  background: #050505;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 40px;
-  transition: opacity .7s cubic-bezier(.6,0,.2,1), transform .7s cubic-bezier(.6,0,.2,1), filter .7s ease;
-}
-.intro-mod::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 90% 60% at 50% 50%, rgba(255, 255, 255,0.05), transparent 70%),
-    repeating-linear-gradient(0deg, transparent 0 2px, rgba(255,255,255,0.012) 2px 3px);
-}
-.intro-mod.gone {
-  opacity: 0;
-  transform: scale(1.03);
-  filter: blur(6px);
-  pointer-events: none;
-}
-
-.intro-mod-top, .intro-mod-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
-  color: var(--text-2);
-  position: relative; z-index: 2;
-}
-.intro-mod-label, .intro-mod-counter, .intro-mod-loc {
-  opacity: 0; transform: translateY(-4px);
-  transition: opacity .5s ease, transform .5s ease;
-}
-.intro-mod-bottom .intro-mod-counter, .intro-mod-bottom .intro-mod-loc {
-  transform: translateY(4px);
-}
-.intro-mod-label.on, .intro-mod-counter.on, .intro-mod-loc.on { opacity: 1; transform: none; }
-.intro-mod-counter { font-variant-numeric: tabular-nums; color: var(--text); }
-.intro-mod-counter-dim { color: var(--muted); }
-
-.intro-mod-center {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 28px; position: relative; z-index: 2;
-}
-.intro-mod-hairline {
-  width: 0; height: 1px; background: var(--cyan); opacity: 0;
-  box-shadow: 0 0 12px rgba(255, 255, 255,0.18);
-  transition: width .8s cubic-bezier(.6,0,.2,1), opacity .3s ease;
-}
-.intro-mod-hairline.on { width: min(560px, 60vw); opacity: 0.8; }
-
-.intro-mod-mask {
-  overflow: hidden; display: block;
-  padding: 0 10px 4px;
-}
-.intro-mod-name {
-  font-family: var(--font-display);
-  font-size: clamp(48px, 9vw, 110px);
-  font-weight: 600;
-  letter-spacing: -0.035em; line-height: 0.95;
-  color: var(--text); margin: 0;
-  transform: translateY(110%);
-  transition: transform 1s cubic-bezier(.66,0,.2,1);
-}
-.intro-mod-name.on { transform: translateY(0); }
-
-.intro-mod-sub {
-  font-family: var(--font-mono); font-size: 13px;
-  color: var(--text-2); letter-spacing: 0.04em;
-  opacity: 0; transform: translateY(8px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.intro-mod-sub.on { opacity: 1; transform: none; }
-
-@media (max-width: 600px) {
-  .intro-mod { padding: 24px; }
-  .intro-mod-top, .intro-mod-bottom { font-size: 9px; gap: 12px; }
-  .intro-mod-top .intro-mod-label:nth-child(2) { display: none; }
-}
 
 /* ---------- Circuit signal flow (Hero side visual) ---------- */
 .circuit-wrap {
@@ -401,8 +304,6 @@ h2.section-title {
   .stagger-char { transform: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .role-rotator-track { transition: none !important; }
-  .intro-mod { display: none !important; }
-  .cursor-dot, .cursor-ring { display: none !important; }
 }
 
 /* ---------- Buttons ---------- */
@@ -599,9 +500,6 @@ h2.section-title {
 .avatar-frame::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 .avatar-placeholder { color: var(--muted); font-family: var(--font-mono); font-size: 12px; text-align: center; }
 .avatar-placeholder .ph-glyph { font-size: 64px; color: var(--text-2); margin-bottom: 12px; line-height: 1; }
-.avatar-meta { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-top: 14px; }
-.avatar-meta .green { color: var(--green); }
-
 .bio p { color: var(--text-2); font-size: 17px; line-height: 1.7; margin: 0 0 18px; }
 .bio .lead { color: var(--text); font-size: 19px; }
 .bio b { color: var(--text); font-weight: 500; }
