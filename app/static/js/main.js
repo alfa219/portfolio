@@ -8,9 +8,18 @@
 (function () {
   'use strict';
 
-  const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
   const prefersReducedMotion = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasFinePointer = () =>
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // SMIL <animate> elements ignore CSS reduced-motion rules — pause via the API.
+  const pauseSvgAnimations = (root) => {
+    if (!prefersReducedMotion()) return;
+    (root || document).querySelectorAll('svg').forEach((s) => {
+      if (typeof s.pauseAnimations === 'function') s.pauseAnimations();
+    });
+  };
 
   // -----------------------------------------------------------------
   // Custom cursor
@@ -18,7 +27,14 @@
   function initCursor() {
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
-    if (!dot || !ring || isMobile()) return;
+    if (!dot || !ring) return;
+    // Only for mouse-like pointers, and never under reduced motion —
+    // removing the nodes also avoids the endless rAF loop.
+    if (!hasFinePointer() || prefersReducedMotion()) {
+      dot.remove();
+      ring.remove();
+      return;
+    }
 
     let mx = window.innerWidth / 2;
     let my = window.innerHeight / 2;
@@ -55,14 +71,16 @@
     const intro = document.getElementById('intro-mod');
     if (!intro) return;
 
-    // Skip intro if seen within last 24h
+    // Skip instantly for reduced motion, or if seen within the last 24h.
+    let seen = false;
     try {
       const last = parseInt(localStorage.getItem('intro_seen_at') || '0', 10);
-      if (Date.now() - last < 24 * 60 * 60 * 1000) {
-        intro.remove();
-        return;
-      }
+      seen = Date.now() - last < 24 * 60 * 60 * 1000;
     } catch (e) {}
+    if (seen || prefersReducedMotion()) {
+      intro.remove();
+      return;
+    }
 
     const counterEl = document.getElementById('intro-counter');
     const topLabels = intro.querySelectorAll('.intro-mod-label');
@@ -72,34 +90,44 @@
     const name = intro.querySelector('.intro-mod-name');
     const sub = intro.querySelector('.intro-mod-sub');
 
-    let count = 0;
-    const dur = 1400;
+    const timers = [];
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      timers.forEach(clearTimeout);
+      intro.classList.add('gone');
+      try { localStorage.setItem('intro_seen_at', String(Date.now())); } catch (e) {}
+      setTimeout(() => intro.remove(), 700);
+    };
+
+    const dur = 1000;
     const start = performance.now();
     const tick = (now) => {
+      if (done) return;
       const t = Math.min(1, (now - start) / dur);
       const eased = 1 - Math.pow(1 - t, 3);
-      count = Math.floor(eased * 100);
       if (counterEl) {
-        counterEl.innerHTML = String(count).padStart(3, '0') +
+        counterEl.innerHTML = String(Math.floor(eased * 100)).padStart(3, '0') +
           '<span class="intro-mod-counter-dim"> / 100</span>';
       }
       if (t < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
 
-    setTimeout(() => {
+    timers.push(setTimeout(() => {
       topLabels.forEach(l => l.classList.add('on'));
       if (bottomCounter) bottomCounter.classList.add('on');
       if (bottomLoc) bottomLoc.classList.add('on');
       if (hairline) hairline.classList.add('on');
-    }, 180);
-    setTimeout(() => name && name.classList.add('on'), 700);
-    setTimeout(() => sub && sub.classList.add('on'), 1400);
-    setTimeout(() => intro.classList.add('gone'), 2100);
-    setTimeout(() => {
-      intro.remove();
-      try { localStorage.setItem('intro_seen_at', String(Date.now())); } catch (e) {}
-    }, 2700);
+    }, 120));
+    timers.push(setTimeout(() => name && name.classList.add('on'), 450));
+    timers.push(setTimeout(() => sub && sub.classList.add('on'), 950));
+    timers.push(setTimeout(finish, 1500));
+
+    // Any click or key skips straight to the page.
+    intro.addEventListener('pointerdown', finish);
+    document.addEventListener('keydown', finish, { once: true });
   }
 
   // -----------------------------------------------------------------
@@ -218,12 +246,23 @@
   // -----------------------------------------------------------------
   function initRoleRotator() {
     const track = document.getElementById('role-rotator-track');
-    if (!track) return;
-    const items = track.children.length - 1; // last is a duplicate of first
+    if (!track || track.children.length < 2) return;
+    if (prefersReducedMotion()) return;
+    const total = track.children.length; // last child is a clone of the first
     let i = 0;
     setInterval(() => {
-      i = (i + 1) % items;
+      i += 1;
       track.style.transform = `translateY(-${i * 100}%)`;
+      if (i === total - 1) {
+        // Landed on the clone — snap back to the real first item, unanimated.
+        setTimeout(() => {
+          track.style.transition = 'none';
+          track.style.transform = 'translateY(0)';
+          void track.offsetHeight;
+          track.style.transition = '';
+          i = 0;
+        }, 750);
+      }
     }, 2800);
   }
 
@@ -235,6 +274,10 @@
     if (!els.length) return;
     const animate = (el) => {
       const target = parseInt(el.dataset.counter, 10);
+      if (prefersReducedMotion()) {
+        el.textContent = target;
+        return;
+      }
       const dur = 1400;
       const t0 = performance.now();
       const tick = (now) => {
@@ -269,7 +312,7 @@
       const el = document.getElementById(id);
       if (!el) return;
       e.preventDefault();
-      window.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
+      window.scrollTo({ top: el.offsetTop - 40, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
       history.replaceState(null, '', '#' + id);
     });
   }
@@ -286,7 +329,7 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
     });
     onScroll();
   }
@@ -470,6 +513,7 @@
 
       document.body.style.overflow = 'hidden';
       document.body.appendChild(node);
+      pauseSvgAnimations(node);
       current = node;
     };
 
@@ -526,6 +570,7 @@
     initBackToTop();
     initProjectModal();
     initContactCopy();
+    pauseSvgAnimations(document);
   }
 
   if (document.readyState === 'loading') {
