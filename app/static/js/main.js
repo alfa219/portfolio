@@ -225,17 +225,25 @@
   // -----------------------------------------------------------------
   function initStaggerName() {
     document.querySelectorAll('[data-stagger]').forEach(el => {
-      const text = el.dataset.stagger;
       const frag = document.createDocumentFragment();
-      [...text].forEach((ch, i) => {
-        const mask = document.createElement('span');
-        mask.className = 'stagger-char-mask';
-        const c = document.createElement('span');
-        c.className = 'stagger-char';
-        c.style.animationDelay = (0.05 + i * 0.04) + 's';
-        c.textContent = ch === ' ' ? ' ' : ch;
-        mask.appendChild(c);
-        frag.appendChild(mask);
+      let i = 0;
+      el.dataset.stagger.split(' ').forEach((word, w) => {
+        if (!word) return;
+        if (w > 0) i += 1; // keep the delay rhythm across the (removed) space
+        const wordEl = document.createElement('span');
+        wordEl.className = 'stagger-word';
+        [...word].forEach((ch) => {
+          const mask = document.createElement('span');
+          mask.className = 'stagger-char-mask';
+          const c = document.createElement('span');
+          c.className = 'stagger-char';
+          c.style.animationDelay = (0.05 + i * 0.04) + 's';
+          c.textContent = ch;
+          mask.appendChild(c);
+          wordEl.appendChild(mask);
+          i += 1;
+        });
+        frag.appendChild(wordEl);
       });
       el.appendChild(frag);
     });

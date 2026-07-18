@@ -52,6 +52,9 @@ button { font-family: inherit; cursor: none; }
 @media (max-width: 900px) { button { cursor: pointer; } }
 ::selection { background: var(--cyan); color: #000; }
 
+/* Safety net: nothing may cause sideways scroll on phones */
+html, body { overflow-x: clip; }
+
 /* Custom scrollbar — matches the dark theme */
 html { scrollbar-width: thin; scrollbar-color: #2e2e2e var(--bg); }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -416,6 +419,8 @@ h2.section-title {
 
 /* ---------- Hero ---------- */
 .hero { padding: 0; min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+/* svh tracks the real visible height when mobile browser bars show/hide */
+@supports (min-height: 100svh) { .hero { min-height: 100svh; } }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg svg { width: 100%; height: 100%; }
 .hero-gradient { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 45% at 30% 50%, rgba(255, 255, 255,0.06), transparent 70%); pointer-events: none; }
@@ -464,7 +469,10 @@ h2.section-title {
   letter-spacing: -0.04em;
   margin: 0 0 28px;
   display: flex; flex-wrap: wrap;
+  column-gap: 0.24em;
 }
+/* Chars are grouped per word so lines only break between words */
+.stagger-word { display: inline-flex; }
 .stagger-char-mask {
   display: inline-block; overflow: hidden;
   vertical-align: bottom; line-height: 1;
@@ -527,7 +535,15 @@ h2.section-title {
 
 @media (max-width: 700px) {
   .role-rotator { flex-direction: column; align-items: flex-start; gap: 4px; }
-  .hero-meta { font-size: 10px; gap: 8px; flex-wrap: wrap; }
+  .hero-meta { font-size: 10px; gap: 8px; flex-wrap: wrap; row-gap: 6px; }
+  /* Flow layout on phones: no vh-centering (mobile URL bars shift 100vh),
+     and the stats strip follows the content instead of overlapping it. */
+  .hero { min-height: 0; display: block; padding: 104px 0 0; }
+  .hero-content { padding-top: 0; }
+  .hero-stats-strip { position: static; margin-top: 56px; }
+  .stagger-name { font-size: clamp(38px, 13vw, 56px); }
+  .tagline { font-size: 16px; }
+  .ticker { gap: 12px 28px; font-size: 11px; }
 }
 
 /* Old typing role styles (kept for backward compat, unused) */
