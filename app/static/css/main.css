@@ -797,12 +797,10 @@ footer { border-top: 1px solid var(--border); padding: 56px 0 32px; margin-top: 
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 20px;
-}
-/* When the coursework card is hidden, the degree card takes the full row */
-.edu-grid .edu-card:only-child {
-  grid-column: 1 / -1;
   margin-bottom: 56px;
 }
+/* When the coursework card is hidden, the degree card takes the full row */
+.edu-grid .edu-card:only-child { grid-column: 1 / -1; }
 @media (max-width: 900px) { .edu-grid { grid-template-columns: 1fr; } }
 
 .edu-card {
