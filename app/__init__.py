@@ -38,6 +38,13 @@ def create_app(env: str = "development") -> Flask:
             "supported_langs": i18n.SUPPORTED,
         }
 
+    @app.after_request
+    def security_headers(resp):
+        resp.headers.setdefault("X-Content-Type-Options", "nosniff")
+        resp.headers.setdefault("X-Frame-Options", "DENY")
+        resp.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+        return resp
+
     from .routes.main import main_bp
     app.register_blueprint(main_bp)
 

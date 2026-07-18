@@ -4,13 +4,16 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>{% block title %}{{ config.OWNER_NAME }} · IoT Engineer Portfolio{% endblock %}</title>
-  <meta name="description" content="{% block description %}IoT Engineer · Embedded Developer · Smart System Builder. Building the bridge between hardware and the cloud.{% endblock %}"/>
+  <meta name="description" content="{% block description %}{{ t.meta_description }}{% endblock %}"/>
   <meta name="author" content="{{ config.OWNER_NAME }}"/>
   <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#0A0A0A"/>
 
   <meta property="og:title" content="{{ config.OWNER_NAME }} — IoT Engineer Portfolio"/>
-  <meta property="og:description" content="Building the bridge between hardware and the cloud."/>
+  <meta property="og:description" content="{{ t.meta_description }}"/>
   <meta property="og:type" content="website"/>
+
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
