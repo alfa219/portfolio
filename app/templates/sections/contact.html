@@ -44,11 +44,13 @@
       </div>
 
       <form class="form" id="contact-form" novalidate
-        data-mailto="{{ config.OWNER_EMAIL }}"
         data-msg-required="{{ t.contact_toast_required }}"
         data-msg-success="{{ t.contact_toast_success }}"
+        data-msg-error="{{ t.contact_toast_error }} {{ config.OWNER_EMAIL }}"
         data-label-send="{{ t.contact_form_submit }}"
         data-label-sending="{{ t.contact_form_sending }}">
+        <input type="text" name="website" tabindex="-1" autocomplete="off"
+          aria-hidden="true" style="position: absolute; left: -9999px; height: 0; width: 0; opacity: 0;"/>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="form-name">{{ t.contact_form_name }}</label>

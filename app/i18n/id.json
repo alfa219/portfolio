@@ -154,7 +154,8 @@
   "contact_form_message_ph": "Ceritakan tentang proyek, peran, atau ide Anda…",
   "contact_form_submit": "Kirim Pesan",
   "contact_form_sending": "Mengirim…",
-  "contact_toast_success": "Membuka aplikasi email…",
+  "contact_toast_success": "Pesan terkirim. Terima kasih — akan segera saya balas.",
+  "contact_toast_error": "Gagal mengirim. Email saya langsung di",
   "contact_toast_required": "Mohon lengkapi kolom wajib.",
 
   "footer_navigate": "Navigasi",

@@ -88,8 +88,10 @@ ada, versi English yang dipakai.
 
 ## Catatan implementasi
 
-- Form kontak memakai `mailto:` (membuka aplikasi email pengunjung) — tanpa
-  backend email.
+- Form kontak mengirim email lewat endpoint `POST /api/contact` (SMTP via
+  `smtplib`, dikonfigurasi lewat env `SMTP_*` — lihat `.env.example`), dengan
+  honeypot anti-spam dan rate limit sederhana per IP. Bila SMTP belum
+  dikonfigurasi, UI menampilkan pesan agar menghubungi email langsung.
 - Item PRD yang belum dibangun: Flask-Caching, Flask-Talisman/CSRF.
 - Di produksi, aplikasi menolak boot bila `SECRET_KEY` kosong atau masih nilai
   default development.

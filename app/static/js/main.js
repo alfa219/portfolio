@@ -507,25 +507,48 @@
     };
 
     const msgRequired = form.dataset.msgRequired || 'Please complete the required fields.';
-    const msgSuccess = form.dataset.msgSuccess || 'Opening your email app…';
-    const mailto = form.dataset.mailto || '';
+    const msgSuccess = form.dataset.msgSuccess || 'Message sent.';
+    const msgError = form.dataset.msgError || 'Could not send. Please email me directly.';
+    const labelSend = form.dataset.labelSend || 'Send Message';
+    const labelSending = form.dataset.labelSending || 'Sending…';
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
       const name = (data.get('name') || '').toString().trim();
       const email = (data.get('email') || '').toString().trim();
       const subject = (data.get('subject') || '').toString().trim();
       const message = (data.get('message') || '').toString().trim();
-      if (!name || !email || !message || !mailto) {
+      if (!name || !email || !message) {
         showToast(msgRequired);
         return;
       }
-      // Honest handoff: open the visitor's own email client, pre-filled.
-      const subj = encodeURIComponent(subject || `Portfolio contact from ${name}`);
-      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-      window.location.href = `mailto:${mailto}?subject=${subj}&body=${body}`;
-      showToast(msgSuccess);
+      const btn = document.getElementById('form-submit');
+      const label = btn && btn.querySelector('.btn-label');
+      if (btn) btn.disabled = true;
+      if (label) label.textContent = labelSending;
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name, email, subject, message,
+            website: (data.get('website') || '').toString()
+          })
+        });
+        const out = await res.json().catch(() => ({}));
+        if (res.ok && out.ok) {
+          showToast(msgSuccess);
+          form.reset();
+        } else {
+          showToast(msgError);
+        }
+      } catch (err) {
+        showToast(msgError);
+      } finally {
+        if (btn) btn.disabled = false;
+        if (label) label.textContent = labelSend;
+      }
     });
 
     // Copy email button
