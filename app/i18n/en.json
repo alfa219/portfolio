@@ -18,9 +18,6 @@
   "meta_description": "IoT & Embedded Systems portfolio — ESP32 firmware, hardware builds, and systems deployed in the field: school attendance, EV charging, assistive devices.",
 
 
-  "hero_meta_open": "OPEN TO INTERNSHIP & ENTRY-LEVEL",
-  "hero_meta_class": "S1 TEKNIK KOMPUTER · AMIKOM",
-  "hero_meta_location": "SLEMAN, YOGYAKARTA",
   "hero_currently": "Currently —",
   "hero_role_1": "IoT Engineer",
   "hero_role_2": "Embedded Developer",
@@ -29,7 +26,6 @@
   "hero_tagline": "S1 Teknik Komputer student at Universitas Amikom Yogyakarta, focused on Internet of Things and Embedded Systems — building connected systems that run in the field, from ESP32 firmware to cloud dashboards.",
   "hero_btn_projects": "View Projects",
   "hero_btn_cv": "Download CV",
-  "hero_side": "PORTFOLIO_V1.0 // SCROLL_TO_EXPLORE",
   "hero_ticker_1": "S1 TEKNIK KOMPUTER · UNIVERSITAS AMIKOM YOGYAKARTA",
   "hero_ticker_2": "ESP32 · STM32 · ARDUINO · MQTT · FIREBASE · BLE",
   "hero_ticker_3": "OPEN TO: INTERNSHIP · FREELANCE · ENTRY-LEVEL",
