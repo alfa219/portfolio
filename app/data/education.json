@@ -7,7 +7,7 @@
     "university": "Universitas Amikom Yogyakarta",
     "concentration": "Internet of Things",
     "status": "Active Student",
-    "status_note": "Semester 6 · expected 2027",
+    "status_note": "Expected graduation 2027",
     "thesis": {
       "title": "In planning — topic to be confirmed (IoT / Embedded Systems focus)",
       "advisor": "TBD",
@@ -15,18 +15,18 @@
     }
   },
   "coursework": [
-    { "code": "IOT401", "name": "Internet of Things" },
-    { "code": "EMB301", "name": "Embedded Systems Design" },
-    { "code": "MCU201", "name": "Microprocessor Architecture" },
-    { "code": "NET302", "name": "Computer Networks" },
-    { "code": "DSA201", "name": "Data Structures & Algorithms" },
-    { "code": "OOP201", "name": "Object-Oriented Programming" },
-    { "code": "PCB301", "name": "PCB Design & Fabrication" },
-    { "code": "WCM402", "name": "Wireless Communication" },
-    { "code": "AI301",  "name": "Artificial Intelligence" },
-    { "code": "MAD301", "name": "Mobile Application Development" },
-    { "code": "SWE201", "name": "Software Engineering" },
-    { "code": "DAT302", "name": "Database Systems" }
+    { "name": "Internet of Things" },
+    { "name": "Embedded Systems Design" },
+    { "name": "Microprocessor Architecture" },
+    { "name": "Computer Networks" },
+    { "name": "Data Structures & Algorithms" },
+    { "name": "Object-Oriented Programming" },
+    { "name": "PCB Design & Fabrication" },
+    { "name": "Wireless Communication" },
+    { "name": "Artificial Intelligence" },
+    { "name": "Mobile Application Development" },
+    { "name": "Software Engineering" },
+    { "name": "Database Systems" }
   ],
   "organizations": []
 }

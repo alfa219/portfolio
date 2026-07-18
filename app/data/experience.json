@@ -37,7 +37,7 @@
     "title": "Lab Assistant · Data Acquisition Systems (IoT Concentration)",
     "company": "Universitas Amikom Yogyakarta · Computer Lab",
     "points": [
-      "Assist the Data Acquisition practicum (semester 6, IoT concentration): guiding students through sensor reading, data logging, and telemetry on ESP32.",
+      "Assist the Data Acquisition practicum (IoT concentration): guiding students through sensor reading, data logging, and telemetry on ESP32.",
       "Prepare weekly practicum materials and help debug student wiring and firmware during lab sessions."
     ],
     "stack": ["ESP32", "Arduino"]
@@ -47,7 +47,7 @@
     "title": "Lab Assistant · Hardware Development",
     "company": "Universitas Amikom Yogyakarta · Computer Lab",
     "points": [
-      "Assisted the Hardware Development practicum (semester 4): microcontroller fundamentals and component-level wiring with Arduino and ESP32.",
+      "Assisted the Hardware Development practicum: microcontroller fundamentals and component-level wiring with Arduino and ESP32.",
       "Maintained lab equipment inventory and prepared weekly practicum kits."
     ],
     "stack": ["Arduino", "ESP32"]
