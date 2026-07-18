@@ -25,7 +25,7 @@
     "tag": "D.CLOUD",
     "title": "Platform Cloud & IoT",
     "desc": "Tempat perangkat melapor pulang.",
-    "items": ["AWS IoT Core", "Azure IoT Hub", "Google Cloud IoT", "ThingsBoard", "Blynk", "Adafruit IO", "Firebase RTDB"]
+    "items": ["Blynk", "Adafruit IO", "Firebase RTDB", "Azure App Service"]
   },
   {
     "icon": "db",
