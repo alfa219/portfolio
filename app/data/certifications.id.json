@@ -1,0 +1,5 @@
+[
+  { "issuer": "Cisco Networking Academy", "logo": "CC", "title": "CCNAv7: Introduction to Networks", "date": "Selesai Agu 2024", "cred_id": "6bd505b3-7acc-4f70-b5ba-05424ae229f1" },
+  { "issuer": "Cisco Networking Academy", "logo": "CC", "title": "CCNA: Switching, Routing & Wireless Essentials", "date": "Selesai Mar 2025", "cred_id": "f8e80bd1-e91e-4cf0-919f-0840ed7bcdc1" },
+  { "issuer": "Cisco Networking Academy", "logo": "CC", "title": "CCNA: Enterprise Networking, Security & Automation", "date": "Selesai Jul 2025", "cred_id": "59fcddb5-bfce-44ef-8d7d-b431c87be388" }
+]

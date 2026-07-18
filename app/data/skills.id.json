@@ -3,56 +3,56 @@
     "icon": "chip",
     "tag": "A.HW",
     "title": "Hardware & MCU",
-    "desc": "Boards, modules, and sensors I reach for first.",
+    "desc": "Board, modul, dan sensor andalan saya.",
     "items": ["ESP32", "ESP8266", "Arduino Uno/Mega/Nano", "RPi Pico", "STM32", "NodeMCU", "PZEM-004T", "RC522 RFID", "Relay Module", "LCD 16x2", "MicroSD Module", "Ethernet Module", "TP4056", "Solar Panel", "Vibration Motor", "DHT22", "BMP280", "MPU6050", "PIR"]
   },
   {
     "icon": "signal",
     "tag": "B.NET",
-    "title": "Communication Protocols",
-    "desc": "Wired and wireless — short range to cellular.",
+    "title": "Protokol Komunikasi",
+    "desc": "Kabel dan nirkabel — jarak pendek sampai seluler.",
     "items": ["MQTT", "HTTP/REST", "WebSocket", "BLE", "Wi-Fi", "GSM/NB-IoT", "LTE-M", "Modbus", "RS-485"]
   },
   {
     "icon": "code",
     "tag": "C.LANG",
-    "title": "Programming Languages",
-    "desc": "From bare-metal firmware up to web dashboards.",
+    "title": "Bahasa Pemrograman",
+    "desc": "Dari firmware bare-metal sampai dashboard web.",
     "isLang": true
   },
   {
     "icon": "cloud",
     "tag": "D.CLOUD",
-    "title": "Cloud & IoT Platforms",
-    "desc": "Where the devices report home.",
+    "title": "Platform Cloud & IoT",
+    "desc": "Tempat perangkat melapor pulang.",
     "items": ["AWS IoT Core", "Azure IoT Hub", "Google Cloud IoT", "ThingsBoard", "Blynk", "Adafruit IO", "Firebase RTDB"]
   },
   {
     "icon": "db",
     "tag": "E.DATA",
     "title": "Database & Pipeline",
-    "desc": "Realtime NoSQL, relational, and MQTT brokers.",
+    "desc": "NoSQL realtime, relasional, dan broker MQTT.",
     "items": ["Firebase (NoSQL)", "Firebase Firestore", "PostgreSQL", "Mosquitto", "HiveMQ"]
   },
   {
     "icon": "wave",
     "tag": "F.VIZ",
-    "title": "Visualization & Dashboards",
-    "desc": "Dashboards and charts for live device data.",
+    "title": "Visualisasi & Dashboard",
+    "desc": "Dashboard dan grafik untuk data perangkat live.",
     "items": ["React + Recharts", "D3.js"]
   },
   {
     "icon": "tools",
     "tag": "G.OPS",
     "title": "DevOps & Tools",
-    "desc": "Build, deploy, simulate, debug.",
+    "desc": "Build, deploy, simulasi, debug.",
     "items": ["Git/GitHub", "Docker", "PlatformIO", "Arduino IDE", "EAGLE", "EasyEDA", "Fritzing", "VS Code"]
   },
   {
     "icon": "brain",
     "tag": "H.SOFT",
     "title": "Soft Skills",
-    "desc": "The parts no library ships with.",
-    "items": ["Problem Solving", "Technical Writing", "Team Collaboration", "Agile / Scrum", "Mentoring"]
+    "desc": "Bagian yang tidak disediakan library.",
+    "items": ["Pemecahan Masalah", "Penulisan Teknis", "Kolaborasi Tim", "Agile / Scrum", "Mentoring"]
   }
 ]

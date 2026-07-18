@@ -77,24 +77,19 @@ Buka: <http://localhost:5000>
 
 ## Halaman
 
-Satu landing page menampilkan 10 section: hero, about, education, skills, projects, experience, certifications & achievements, blog, testimonials, contact. Semua data dikelola via JSON di `app/data/`.
+Satu landing page dengan section: hero, about, education, skills, projects, experience, certifications & achievements, dan contact (section blog/testimonials otomatis tersembunyi saat datanya kosong). Semua konten dikelola via JSON di `app/data/`.
 
-## Placeholder
+## Konten dua bahasa (EN/ID)
 
-Ganti string-string berikut di `.env` dan file JSON di `app/data/`:
+UI diterjemahkan lewat `app/i18n/{en,id}.json`. Konten data juga bilingual:
+`<nama>.json` adalah versi English (default), dan `<nama>.id.json` adalah versi
+Indonesia — dipilih otomatis sesuai toggle bahasa. Bila `<nama>.id.json` tidak
+ada, versi English yang dipakai.
 
-- `[YOUR_NAME]`, `[YOUR_UNIVERSITY]`, `[YOUR_INTERNSHIP_COMPANY]`
-- `[SUPERVISOR_NAME]`, `[INTERN_MENTOR_NAME]`, `[HACKATHON_TEAMMATE]`
-- `[X.XX]` (GPA), `[CUM LAUDE]`, `[HIGH GRADE]`
-- `hello@[yourdomain].dev`
+## Catatan implementasi
 
-## Backend belum dikerjakan
-
-Sesuai brief, item PRD berikut **belum** dibangun (frontend dahulu):
-
-- `/api/contact` email endpoint (Flask-Mail, rate limiting)
-- Flask-Caching
-- Flask-Talisman / CSRF
-- Build pipeline Tailwind & PostCSS (CSS sudah ditulis manual)
-
-Form kontak saat ini disimulasikan di sisi klien (toast sukses tanpa kirim email).
+- Form kontak memakai `mailto:` (membuka aplikasi email pengunjung) — tanpa
+  backend email.
+- Item PRD yang belum dibangun: Flask-Caching, Flask-Talisman/CSRF.
+- Di produksi, aplikasi menolak boot bila `SECRET_KEY` kosong atau masih nilai
+  default development.

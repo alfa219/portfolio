@@ -1,0 +1,157 @@
+[
+  {
+    "kind": "accessibility",
+    "id": "PRJ_001",
+    "feat": true,
+    "status": "live",
+    "title": "VIBRADoor — Bel Pintu Getar Nirkabel untuk Siswa Tuna Rungu",
+    "desc": "Sistem bel pintu nirkabel berbasis ESP32 + MQTT untuk siswa tuna rungu — proyek commissioned. Tombol bel di pintu kelas mengirim notifikasi getaran ke gelang wearable yang dipakai siswa. Satu pasang terpasang dan masih beroperasi harian di SLB Damayanti Sleman, Yogyakarta. Total BOM Rp 366 ribu per pasang.",
+    "stack": ["ESP32 DevKit", "MQTT", "Mosquitto", "LiPo 2000mAh", "TP4056", "Vibration Motor 10mm", "Custom PCB"],
+    "photo_folder": "vibradoor",
+    "photos": [
+      {
+        "file": "01-dokumetasi.webp",
+        "caption": "Siswa SLB Damayanti menggunakan VIBRADoor di kelas — wearable di pergelangan tangan, transmitter di meja. Dipakai harian sejak 2025."
+      }
+    ],
+    "detail": {
+      "role": "Firmware Engineer & Perakitan Hardware · tim 2 orang",
+      "duration": "2025",
+      "challenge": "Proyek commissioned untuk SLB (sekolah luar biasa): siswa tuna rungu tidak dapat mendengar bel pintu kelas, sehingga tamu sering tak disadari dan komunikasi guru–siswa terhambat. Alternatif konvensional seperti lampu kedip mudah terlewat saat siswa fokus mengerjakan tugas atau membelakangi pintu.",
+      "approach": [
+        "Sebagai bagian dari tim 2 orang, kontribusi utama saya adalah firmware ESP32 (Arduino framework) dan perakitan hardware kedua perangkat.",
+        "Dua node ESP32 DevKit berkomunikasi lewat MQTT broker Mosquitto self-host: pemancar (push-button R13-507 di pintu kelas, adaptor 5V/1A dengan step-down LM2598 dan LED indikator) dan gelang wearable (ESP32 + LiPo 2000mAh + modul charger TP4056 + DC vibration motor 10mm dalam enclosure plastik).",
+        "Memilih MQTT (pub/sub) daripada pairing langsung seperti ESP-NOW — satu tombol bisa publish ke banyak gelang sekaligus bila sekolah menambah unit, dan status koneksi tiap node bisa dipantau lewat broker.",
+        "PCB lubang double-sided dengan konektor JST 2.54mm dan pin header untuk modularitas: komponen wearable bisa diganti atau diservis tanpa solder ulang — penting untuk perawatan lapangan.",
+        "Manajemen daya gelang: LiPo 2000mAh diisi lewat TP4056 via jack DC 5.5×2.1mm — tahan satu hari sekolah penuh per pengisian, ringan dan aman dipakai siswa.",
+        "Total BOM Rp 366 ribu per pasang (pemancar + wearable) — terjangkau dan berkelanjutan untuk direplikasi bila ada permintaan lanjutan."
+      ],
+      "outcome": [
+        "Satu pasang (pemancar + wearable) terpasang dan masih beroperasi harian di SLB Damayanti Sleman, Yogyakarta sejak 2025 — keandalan terbukti di lingkungan nyata, bukan sekadar prototipe lab.",
+        "Mengurangi hambatan komunikasi antara guru/staf dan siswa tuna rungu: siswa langsung merasakan getaran di pergelangan tangan tanpa harus memperhatikan pintu.",
+        "Arsitektur MQTT mudah diskalakan: menambah pasangan untuk pintu/siswa lain cukup provisioning ke topic yang sama, tanpa mengubah firmware dasar.",
+        "Bukti kepercayaan: dipercaya membangun alat IoT custom untuk kebutuhan nyata yang spesifik — melampaui proyek akademik."
+      ],
+      "links": {
+        "github": "#",
+        "demo": "#"
+      }
+    }
+  },
+  {
+    "kind": "ev_iot",
+    "id": "PRJ_002",
+    "feat": true,
+    "status": "live",
+    "title": "PAYCAY — Smart EV Charging Station (IoT + Web)",
+    "desc": "Sistem manajemen Stasiun Pengisian Kendaraan Listrik (SPKLU) end-to-end: firmware ESP32 (PZEM-004T + RC522 RFID + relay AC), backend Flask + Firebase Realtime DB, dashboard web real-time via Socket.IO, dideploy di Microsoft Azure App Service.",
+    "stack": ["ESP32", "PZEM-004T", "RC522 RFID", "Flask", "Firebase RTDB", "Socket.IO", "Azure"],
+    "photo_folder": "paycay-iot",
+    "photos": [
+      {
+        "file": "01-img-5789.webp",
+        "caption": "Unit pengisian PAYCAY — tampilan hardware 1"
+      },
+      {
+        "file": "02-img-5790.webp",
+        "caption": "Unit pengisian PAYCAY — tampilan hardware 2"
+      },
+      {
+        "file": "03-img-5791.webp",
+        "caption": "Unit pengisian PAYCAY — tampilan hardware 3"
+      }
+    ],
+    "detail": {
+      "role": "Solo Developer · IoT + Backend + Web",
+      "duration": "Aktif — 2025–2026",
+      "challenge": "Membangun infrastruktur SPKLU tanpa operator: ESP32 di stasiun harus membaca meter energi dan RFID, mengontrol relay AC, dan sinkron dengan dashboard admin/user di web — semuanya real-time tanpa polling, dan dapat diakses dari mana saja.",
+      "approach": [
+        "Firmware ESP32 (Arduino) menggabungkan PZEM-004T (V/I/P/E), RFID RC522 13.56 MHz untuk tap-to-start, LCD 16x2 untuk status lokal, dan relay 10A untuk kontrol daya AC.",
+        "Backend Flask dengan service layer berbasis Abstract Base Class (DatabaseInterface) — memudahkan penggantian implementasi database; decorator @login_required dan @admin_required untuk otorisasi multi-peran.",
+        "Flask-SocketIO (worker gevent) menyiarkan update sensor ke browser secara live; Firebase Realtime DB menyimpan state stasiun yang dapat dibaca firmware maupun web.",
+        "Dideploy di Azure App Service (Indonesia Central) dengan gunicorn + GeventWebSocketWorker dan CI/CD GitHub Actions; ESP32 memakai captive-portal AP untuk setup WiFi awal."
+      ],
+      "outcome": [
+        "Juara 1 kategori Produk IoT di ARCADIA 2026 (Fakultas Ilmu Komputer, Universitas Amikom Yogyakarta).",
+        "Live di paycay-app.azurewebsites.net dengan dashboard admin (manajemen stasiun & user, statistik) dan dashboard user (live charging, riwayat, top-up).",
+        "Pemotongan saldo otomatis berdasarkan kWh dari PZEM-004T; start/stop jarak jauh via web tanpa harus berada di stasiun.",
+        "Menerapkan konsep Python lanjut: OOP, ABC, decorator, type hint, design pattern (Singleton, Factory, Strategy), WebSocket real-time.",
+        "Skema REST API lengkap untuk siklus sesi: start → update (sensor live) → end, plus autentikasi via UID RFID."
+      ],
+      "links": {
+        "github": "https://github.com/alfa219/paycay-",
+        "demo": "https://paycay-app-frczdrawfvechedj.indonesiacentral-01.azurewebsites.net"
+      }
+    }
+  },
+  {
+    "kind": "ev",
+    "id": "PRJ_003",
+    "feat": true,
+    "status": "live",
+    "title": "PAYCAY Mobile — Aplikasi Pendamping",
+    "desc": "Aplikasi mobile Flutter pendamping sistem PAYCAY SPKLU. Monitor sensor ESP32 (PZEM-004T) real-time via Firebase RTDB, dompet digital, dan panel admin — dua sisi pengguna: User & Admin.",
+    "stack": ["Flutter", "Firebase RTDB", "Firestore", "Riverpod", "GoRouter", "FCM"],
+    "photo_folder": "paycay-mobile",
+    "photos": [],
+    "detail": {
+      "role": "Solo Developer · Mobile (pendamping IoT + Web)",
+      "duration": "Aktif — 2025–2026",
+      "challenge": "Membawa seluruh fitur PAYCAY ke mobile: monitor stasiun real-time, kelola sesi pengisian, dompet & top-up, dan persetujuan admin — tanpa bergantung pada koneksi langsung Bluetooth/WiFi antara hardware dan ponsel.",
+      "approach": [
+        "Firebase Realtime Database berperan sebagai message broker antara ESP32 (penulis sensor) dan aplikasi mobile (pembaca) — sejalan dengan dashboard web di PRJ_002.",
+        "Arsitektur clean dengan Riverpod 2.x: Presentation → Services → Firebase SDKs; StreamProvider untuk RTDB/Firestore, StateNotifierProvider untuk sesi aktif yang persist via SharedPreferences.",
+        "Simulator sensor di dalam aplikasi sehingga bisa diuji dan didemokan sebelum stasiun fisik tersedia; otomatis nonaktif saat ESP32 online, tanpa perubahan UI.",
+        "Transaksi Firestore atomik untuk saldo (top-up & biaya pengisian) menjaga konsistensi pada penulisan bersamaan."
+      ],
+      "outcome": [
+        "Aplikasi dual-peran lengkap (User & Admin) dengan polesan UI: shimmer loading, empty state, pull-to-refresh.",
+        "Pemulihan sesi: aplikasi bisa ditutup paksa di tengah pengisian lalu dibuka lagi — banner sesi aktif kembali muncul dengan waktu berjalan yang konsisten.",
+        "Auto-stop saat saldo habis berfungsi end-to-end (poll sensor 2 detik → biaya ≥ saldo → perintah stop relay via RTDB).",
+        "Siap dipasangkan dengan firmware ESP32 di PRJ_002 — skema RTDB/Firestore identik."
+      ],
+      "links": {
+        "github": "https://github.com/alfa219/app-paycay",
+        "demo": "#"
+      }
+    }
+  },
+  {
+    "kind": "attendance",
+    "id": "PRJ_004",
+    "feat": true,
+    "status": "live",
+    "title": "Presensi SMPN 2 Paliyan — Presensi Sekolah IoT (RFID + ESP32)",
+    "desc": "Sistem presensi sekolah berbasis IoT untuk SMPN 2 Paliyan — proyek pengabdian dengan sekolah sebagai mitra. Siswa tap kartu RFID pada alat ESP32 di gerbang (atau memasukkan NIPD via keypad sebagai cadangan), data dikirim ke server Flask, lalu dipantau real-time lewat dashboard admin dan portal orang tua. Alat sudah terpasang dan dipakai harian.",
+    "stack": ["ESP32", "RC522 RFID", "Keypad 3x4", "LCD 16x2", "Ethernet W5500", "SD Card", "RTC DS3231", "UPS Backup", "Flask", "Firebase Firestore"],
+    "photo_folder": "presensi-smpn2-paliyan",
+    "photos": [
+      {
+        "file": "01-alat-gerbang.webp",
+        "caption": "Alat presensi RFID + keypad terpasang di gerbang SMPN 2 Paliyan — dipakai untuk presensi harian."
+      }
+    ],
+    "detail": {
+      "role": "Firmware, Hardware & Backend · proyek tim",
+      "duration": "2026 — Sekarang",
+      "challenge": "SMPN 2 Paliyan membutuhkan presensi yang andal dan transparan: rekap manual lambat, orang tua tidak punya visibilitas kehadiran anak, dan jaringan sekolah tidak selalu stabil — alat harus tetap mencatat meski LAN atau server sedang mati.",
+      "approach": [
+        "Kontribusi saya mencakup tiga sisi: firmware ESP32, perakitan hardware alat gerbang (RC522 RFID, keypad 3×4, LCD 16×2, RTC DS3231, modul Ethernet W5500, SD card), dan backend server (Flask + Firebase Firestore).",
+        "Alur presensi: siswa tap kartu RFID, atau memasukkan NIPD lewat keypad saat kartu tertinggal/hilang; status kehadiran langsung tampil di LCD.",
+        "Ketahanan offline (store-and-forward): saat LAN/server mati, tap disimpan ke SD card dan dikirim ulang otomatis saat kembali online; jam disinkron via NTP dengan RTC DS3231 sebagai cadangan offline.",
+        "Cadangan daya (UPS): alat tetap menyala dan mencatat presensi saat listrik sekolah padam — melengkapi store-and-forward agar tidak ada tap yang hilang.",
+        "Keandalan 24/7 tanpa pengawasan: watchdog (reboot mandiri bila program macet) plus reboot terjadwal harian, karena alat beroperasi terus-menerus di gerbang.",
+        "Backend Flask yang saya bangun menjadi satu-satunya pintu data: alat maupun browser tidak menyentuh Firestore langsung — akses lewat service account (Security Rules menolak akses klien), dengan REST API untuk tap presensi, data siswa, dan laporan."
+      ],
+      "outcome": [
+        "Terpasang dan dipakai untuk presensi harian di SMPN 2 Paliyan — berjalan di lingkungan nyata, bukan prototipe lab.",
+        "Tap RFID/keypad tetap tercatat andal saat jaringan putus maupun listrik padam, berkat store-and-forward ke SD card dan cadangan UPS.",
+        "Backend menyalakan dashboard admin (rekap, roll-call, grafik, import Excel, export PDF/Excel/CSV, kenaikan kelas) dan portal orang tua publik (cek kehadiran via NISN)."
+      ],
+      "links": {
+        "github": "#",
+        "demo": "https://presensi-smpn2-paliyan.my.id/"
+      }
+    }
+  }
+]

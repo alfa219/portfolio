@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from flask import Blueprint, render_template, redirect, make_response, request, url_for
+from flask import Blueprint, g, render_template, redirect, make_response, request, url_for
 from app import i18n
 
 main_bp = Blueprint("main", __name__)
@@ -9,6 +9,14 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 
 
 def load_json(filename: str):
+    # Localized content: for lang "id", prefer "<name>.id.json" when it exists;
+    # the plain "<name>.json" is the English (default) version.
+    lang = getattr(g, "lang", i18n.DEFAULT)
+    if lang != i18n.DEFAULT:
+        localized = DATA_DIR / filename.replace(".json", f".{lang}.json")
+        if localized.exists():
+            with open(localized, encoding="utf-8") as f:
+                return json.load(f)
     with open(DATA_DIR / filename, encoding="utf-8") as f:
         return json.load(f)
 

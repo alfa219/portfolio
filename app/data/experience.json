@@ -2,11 +2,11 @@
   {
     "year": "2026 — Present",
     "title": "Campus Project · Presensi SMPN 2 Paliyan — School Attendance",
-    "company": "SMPN 2 Paliyan (mitra) · Gunungkidul",
+    "company": "SMPN 2 Paliyan (partner school) · Gunungkidul",
     "points": [
-      "Sistem presensi sekolah berbasis IoT (proyek pengabdian/kampus, kerja tim) — sudah terpasang dan dipakai untuk presensi harian di SMPN 2 Paliyan.",
-      "Kontribusi saya: firmware ESP32, perakitan hardware alat gerbang (RFID RC522, keypad, LCD, RTC DS3231, Ethernet W5500, SD card, UPS backup), dan backend server (Flask + Firebase Firestore).",
-      "Alat tahan gangguan: store-and-forward ke SD card saat jaringan putus dan UPS saat listrik padam; watchdog + reboot terjadwal untuk operasi 24/7."
+      "IoT-based school attendance system (campus/community team project) — installed and used for daily attendance at SMPN 2 Paliyan.",
+      "My contribution: the ESP32 firmware, the gate-device hardware assembly (RC522 RFID, keypad, LCD, DS3231 RTC, W5500 Ethernet, SD card, UPS backup), and the backend server (Flask + Firebase Firestore).",
+      "Fault-tolerant device: SD-card store-and-forward through network drops and a UPS through power outages; watchdog + scheduled reboot for 24/7 operation."
     ],
     "stack": ["ESP32", "RC522 RFID", "Ethernet W5500", "Flask", "Firebase Firestore"]
   },
@@ -15,7 +15,7 @@
     "title": "Commissioned IoT Builder · VIBRADoor",
     "company": "Independent · Yogyakarta",
     "points": [
-      "Built VIBRADoor, a wireless vibrating doorbell for deaf students at SLB Damayanti Sleman — a commissioned project; one pair deployed and still running daily.",
+      "Built VIBRADoor, a wireless vibrating doorbell for deaf students at SLB Damayanti Sleman — a commissioned project; one pair deployed and still in daily use.",
       "Owned the ESP32 firmware and hardware assembly of both the transmitter and the wearable, communicating over a self-hosted MQTT (Mosquitto) broker.",
       "Designed for field maintenance: custom PCB with swappable modules and LiPo + TP4056 power; total BOM Rp 366k per pair."
     ],
@@ -28,7 +28,7 @@
     "points": [
       "Developed PAYCAY, an end-to-end smart EV charging station (SPKLU) system that won 1st place (Produk IoT) at ARCADIA 2026 — built solo across firmware, backend, web, and mobile.",
       "ESP32 firmware (PZEM-004T metering + RC522 RFID + AC relay), Flask backend with a real-time Socket.IO dashboard, Firebase Realtime DB, and a Flutter companion app.",
-      "Deployed live on Microsoft Azure App Service; applied advanced Python (OOP, ABC, decorators, design patterns)."
+      "Deployed live on Microsoft Azure App Service; applied advanced Python (OOP, ABCs, decorators, design patterns)."
     ],
     "stack": ["ESP32", "Flask", "Firebase", "Socket.IO", "Flutter", "Azure"]
   },

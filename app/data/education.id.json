@@ -1,13 +1,13 @@
 {
   "degree": {
     "badge": "S1",
-    "year_range": "2023 — Present",
-    "title": "Bachelor of Computer Engineering (S.Kom)",
+    "year_range": "2023 — Sekarang",
+    "title": "S1 Teknik Komputer (S.Kom)",
     "field": "Teknik Komputer",
     "university": "Universitas Amikom Yogyakarta",
     "concentration": "Internet of Things",
-    "status": "Active Student",
-    "status_note": "Expected graduation 2027"
+    "status": "Mahasiswa Aktif",
+    "status_note": "Perkiraan lulus 2027"
   },
   "coursework": [
     { "name": "Internet of Things" },

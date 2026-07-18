@@ -1,5 +1,5 @@
 [
-  { "kind": "award",  "title": "Juara 1 — ARCADIA 2026 (Produk IoT)", "desc": "Amikom Arena Creative Application, Digital Innovation & Multimedia (ARCADIA) 2026 — Fakultas Ilmu Komputer, Universitas Amikom Yogyakarta. Karya: PAYCAY (Smart EV Charging Station)." },
-  { "kind": "award",  "title": "Juara Harapan II — Indonesia National IT Competition 2025 (IoT)", "desc": "INDONERIS 2025, kategori IoT — kompetisi tingkat nasional yang diselenggarakan Universitas Amikom Purwokerto (bersama tim)." },
+  { "kind": "award",  "title": "1st Place — ARCADIA 2026 (IoT Product)", "desc": "Amikom Arena Creative Application, Digital Innovation & Multimedia (ARCADIA) 2026 — Faculty of Computer Science, Universitas Amikom Yogyakarta. Winning entry: PAYCAY (Smart EV Charging Station)." },
+  { "kind": "award",  "title": "Honorable Mention (Juara Harapan II) — Indonesia National IT Competition 2025 (IoT)", "desc": "INDONERIS 2025, IoT category — a national competition hosted by Universitas Amikom Purwokerto (team entry)." },
   { "kind": "patent", "title": "Copyright (HKI) — Emergency Input & Alert Station (EIAS) v1.0", "desc": "Official Indonesian software copyright (Hak Cipta, DJKI Kemenkumham), reg. no. 001273262 (2026) — listed as a co-creator; rights held by LPPM Universitas Amikom Yogyakarta." }
 ]

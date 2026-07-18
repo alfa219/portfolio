@@ -1,0 +1,55 @@
+[
+  {
+    "year": "2026 — Sekarang",
+    "title": "Proyek Kampus · Presensi SMPN 2 Paliyan — Presensi Sekolah",
+    "company": "SMPN 2 Paliyan (mitra) · Gunungkidul",
+    "points": [
+      "Sistem presensi sekolah berbasis IoT (proyek pengabdian/kampus, kerja tim) — sudah terpasang dan dipakai untuk presensi harian di SMPN 2 Paliyan.",
+      "Kontribusi saya: firmware ESP32, perakitan hardware alat gerbang (RFID RC522, keypad, LCD, RTC DS3231, Ethernet W5500, SD card, cadangan UPS), dan backend server (Flask + Firebase Firestore).",
+      "Alat tahan gangguan: store-and-forward ke SD card saat jaringan putus dan UPS saat listrik padam; watchdog + reboot terjadwal untuk operasi 24/7."
+    ],
+    "stack": ["ESP32", "RC522 RFID", "Ethernet W5500", "Flask", "Firebase Firestore"]
+  },
+  {
+    "year": "2025",
+    "title": "Commissioned IoT Builder · VIBRADoor",
+    "company": "Independen · Yogyakarta",
+    "points": [
+      "Membangun VIBRADoor, bel pintu getar nirkabel untuk siswa tuna rungu di SLB Damayanti Sleman — proyek commissioned; satu pasang terpasang dan masih dipakai harian.",
+      "Bertanggung jawab atas firmware ESP32 dan perakitan hardware pemancar maupun wearable, berkomunikasi lewat broker MQTT (Mosquitto) self-host.",
+      "Dirancang untuk perawatan lapangan: PCB custom dengan modul yang bisa diganti serta daya LiPo + TP4056; total BOM Rp 366 ribu per pasang."
+    ],
+    "stack": ["ESP32", "MQTT", "Mosquitto", "Custom PCB"]
+  },
+  {
+    "year": "2025 — 2026",
+    "title": "Proyek Kompetisi · PAYCAY — Smart EV Charging",
+    "company": "Independen · Yogyakarta",
+    "points": [
+      "Mengembangkan PAYCAY, sistem SPKLU end-to-end yang meraih Juara 1 (Produk IoT) di ARCADIA 2026 — dikerjakan solo dari firmware, backend, web, sampai mobile.",
+      "Firmware ESP32 (metering PZEM-004T + RFID RC522 + relay AC), backend Flask dengan dashboard real-time Socket.IO, Firebase Realtime DB, dan aplikasi pendamping Flutter.",
+      "Dideploy live di Microsoft Azure App Service; menerapkan Python lanjut (OOP, ABC, decorator, design pattern)."
+    ],
+    "stack": ["ESP32", "Flask", "Firebase", "Socket.IO", "Flutter", "Azure"]
+  },
+  {
+    "year": "2026 — Sekarang",
+    "title": "Asisten Praktikum · Sistem Akuisisi Data (Konsentrasi IoT)",
+    "company": "Universitas Amikom Yogyakarta · Laboratorium Komputer",
+    "points": [
+      "Mendampingi praktikum Sistem Akuisisi Data (konsentrasi IoT): membimbing mahasiswa dalam pembacaan sensor, logging data, dan telemetri di ESP32.",
+      "Menyiapkan materi praktikum mingguan dan membantu debugging wiring serta firmware mahasiswa selama sesi lab."
+    ],
+    "stack": ["ESP32", "Arduino"]
+  },
+  {
+    "year": "2025",
+    "title": "Asisten Praktikum · Pengembangan Perangkat Keras",
+    "company": "Universitas Amikom Yogyakarta · Laboratorium Komputer",
+    "points": [
+      "Mendampingi praktikum Pengembangan Perangkat Keras: dasar mikrokontroler dan wiring komponen dengan Arduino dan ESP32.",
+      "Merawat inventaris peralatan lab dan menyiapkan kit praktikum mingguan."
+    ],
+    "stack": ["Arduino", "ESP32"]
+  }
+]

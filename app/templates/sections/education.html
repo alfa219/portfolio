@@ -38,11 +38,13 @@
           </div>
         </div>
 
+        {% if education.degree.thesis %}
         <div class="edu-thesis">
           <div class="edu-thesis-label">{{ t.education_thesis_label }}</div>
           <div class="edu-thesis-title">&ldquo;{{ education.degree.thesis.title }}&rdquo;</div>
           <div class="edu-thesis-meta">{{ t.education_thesis_advisor }} {{ education.degree.thesis.advisor }} · {{ t.education_thesis_grade }} {{ education.degree.thesis.grade }}</div>
         </div>
+        {% endif %}
       </div>
 
       <div class="edu-card edu-courses reveal">
