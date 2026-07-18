@@ -11,7 +11,7 @@
             <div class="ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"/></svg>
             </div>
-            <span id="contact-email">{{ config.OWNER_EMAIL }}</span>
+            <a href="mailto:{{ config.OWNER_EMAIL }}" id="contact-email">{{ config.OWNER_EMAIL }}</a>
             <button class="copy-btn" id="copy-email"
               data-label-copy="{{ t.contact_copy }}"
               data-label-copied="{{ t.contact_copied }}"
@@ -31,6 +31,11 @@
           </div>
         </div>
 
+        <a href="mailto:{{ config.OWNER_EMAIL }}" class="btn btn-primary btn-icon contact-email-cta">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"/></svg>
+          <span>{{ t.contact_btn_email }}</span>
+        </a>
+
         <div class="avail-chips">
           {% for k in ['contact_chip_1', 'contact_chip_2', 'contact_chip_3', 'contact_chip_4'] %}
           <div class="avail-chip">
@@ -42,44 +47,6 @@
           {% endfor %}
         </div>
       </div>
-
-      <form class="form" id="contact-form" novalidate
-        data-msg-required="{{ t.contact_toast_required }}"
-        data-msg-success="{{ t.contact_toast_success }}"
-        data-msg-error="{{ t.contact_toast_error }} {{ config.OWNER_EMAIL }}"
-        data-label-send="{{ t.contact_form_submit }}"
-        data-label-sending="{{ t.contact_form_sending }}">
-        <input type="text" name="website" tabindex="-1" autocomplete="off"
-          aria-hidden="true" style="position: absolute; left: -9999px; height: 0; width: 0; opacity: 0;"/>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="form-name">{{ t.contact_form_name }}</label>
-            <input class="form-input" id="form-name" name="name" placeholder="{{ t.contact_form_name_ph }}" required/>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="form-email">{{ t.contact_form_email }}</label>
-            <input class="form-input" id="form-email" name="email" type="email" placeholder="{{ t.contact_form_email_ph }}" required/>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="form-subject">{{ t.contact_form_subject }}</label>
-          <input class="form-input" id="form-subject" name="subject" placeholder="{{ t.contact_form_subject_ph }}"/>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="form-message">{{ t.contact_form_message }}</label>
-          <textarea class="form-textarea" id="form-message" name="message" placeholder="{{ t.contact_form_message_ph }}" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-icon" id="form-submit">
-          <span class="btn-label">{{ t.contact_form_submit }}</span>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-        </button>
-      </form>
     </div>
   </div>
-  <div class="toast" id="toast" hidden>
-    <span class="dot"></span>
-    <span id="toast-message">{{ t.contact_toast_success }}</span>
-  </div>
 </section>
-
-<style>@keyframes spin { to { transform: rotate(360deg); } } .spinning { animation: spin 1s linear infinite; }</style>

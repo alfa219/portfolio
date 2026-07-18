@@ -1,8 +1,8 @@
 /* =====================================================================
  * Portfolio interaction layer — vanilla JS
  * Modules: cursor, intro, nav, scroll progress, reveal observer, stagger
- *          name, role rotator, counters, project modal, contact form,
- *          back-to-top, smooth scroll, copy email, drawer.
+ *          name, role rotator, counters, project modal, back-to-top,
+ *          smooth scroll, copy email, drawer.
  * ===================================================================== */
 
 (function () {
@@ -490,84 +490,24 @@
   }
 
   // -----------------------------------------------------------------
-  // Contact form (frontend only — simulates a successful send)
+  // Contact: copy-email button
   // -----------------------------------------------------------------
-  function initContactForm() {
-    const form = document.getElementById('contact-form');
-    const toast = document.getElementById('toast');
-    const toastMsg = document.getElementById('toast-message');
-    if (!form) return;
-
-    const showToast = (msg) => {
-      if (!toast) return;
-      if (toastMsg) toastMsg.textContent = msg;
-      toast.hidden = false;
-      clearTimeout(showToast._t);
-      showToast._t = setTimeout(() => { toast.hidden = true; }, 3500);
-    };
-
-    const msgRequired = form.dataset.msgRequired || 'Please complete the required fields.';
-    const msgSuccess = form.dataset.msgSuccess || 'Message sent.';
-    const msgError = form.dataset.msgError || 'Could not send. Please email me directly.';
-    const labelSend = form.dataset.labelSend || 'Send Message';
-    const labelSending = form.dataset.labelSending || 'Sending…';
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = (data.get('name') || '').toString().trim();
-      const email = (data.get('email') || '').toString().trim();
-      const subject = (data.get('subject') || '').toString().trim();
-      const message = (data.get('message') || '').toString().trim();
-      if (!name || !email || !message) {
-        showToast(msgRequired);
-        return;
-      }
-      const btn = document.getElementById('form-submit');
-      const label = btn && btn.querySelector('.btn-label');
-      if (btn) btn.disabled = true;
-      if (label) label.textContent = labelSending;
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name, email, subject, message,
-            website: (data.get('website') || '').toString()
-          })
-        });
-        const out = await res.json().catch(() => ({}));
-        if (res.ok && out.ok) {
-          showToast(msgSuccess);
-          form.reset();
-        } else {
-          showToast(msgError);
-        }
-      } catch (err) {
-        showToast(msgError);
-      } finally {
-        if (btn) btn.disabled = false;
-        if (label) label.textContent = labelSend;
-      }
-    });
-
-    // Copy email button
+  function initContactCopy() {
     const copyBtn = document.getElementById('copy-email');
     const emailEl = document.getElementById('contact-email');
-    if (copyBtn && emailEl) {
-      const labelCopy = copyBtn.dataset.labelCopy || 'copy';
-      const labelCopied = copyBtn.dataset.labelCopied || '✓ copied';
-      const labelFailed = copyBtn.dataset.labelFailed || '× failed';
-      copyBtn.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(emailEl.textContent.trim());
-          copyBtn.textContent = labelCopied;
-        } catch (e) {
-          copyBtn.textContent = labelFailed;
-        }
-        setTimeout(() => { copyBtn.textContent = labelCopy; }, 1600);
-      });
-    }
+    if (!copyBtn || !emailEl) return;
+    const labelCopy = copyBtn.dataset.labelCopy || 'copy';
+    const labelCopied = copyBtn.dataset.labelCopied || '✓ copied';
+    const labelFailed = copyBtn.dataset.labelFailed || '× failed';
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(emailEl.textContent.trim());
+        copyBtn.textContent = labelCopied;
+      } catch (e) {
+        copyBtn.textContent = labelFailed;
+      }
+      setTimeout(() => { copyBtn.textContent = labelCopy; }, 1600);
+    });
   }
 
   // -----------------------------------------------------------------
@@ -585,7 +525,7 @@
     initSmoothScroll();
     initBackToTop();
     initProjectModal();
-    initContactForm();
+    initContactCopy();
   }
 
   if (document.readyState === 'loading') {
