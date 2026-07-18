@@ -19,6 +19,7 @@
           <h4 class="cert-title">{{ c.title }}</h4>
           <div class="cert-issuer">{{ c.issuer }}</div>
           <div class="cert-date">{{ c.date }}</div>
+          {% if c.cred_id %}<div class="cert-cred">ID: {{ c.cred_id }}</div>{% endif %}
         </div>
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-2);">
           <path d="M7 17L17 7M17 7H8M17 7V16"/>

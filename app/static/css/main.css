@@ -734,6 +734,7 @@ h2.section-title {
 .cert-title { font-family: var(--font-display); font-size: 15px; font-weight: 600; margin: 0 0 4px; }
 .cert-issuer { color: var(--text-2); font-size: 12px; font-family: var(--font-mono); }
 .cert-date { color: var(--muted); font-size: 11px; font-family: var(--font-mono); margin-top: 4px; }
+.cert-cred { color: var(--muted); font-size: 10px; font-family: var(--font-mono); margin-top: 4px; opacity: 0.7; word-break: break-all; }
 
 /* Achievements row */
 .achievements { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
