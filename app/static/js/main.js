@@ -267,6 +267,32 @@
   }
 
   // -----------------------------------------------------------------
+  // Scroll-driven gearbox (hero visual): gears turn as the page scrolls,
+  // meshed gears counter-rotate, and the cable core flows along its path.
+  // -----------------------------------------------------------------
+  function initScrollGears() {
+    const gears = document.querySelectorAll('[data-gear]');
+    if (!gears.length || prefersReducedMotion()) return;
+    const cable = document.querySelector('[data-cable]');
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      gears.forEach((g) => {
+        g.style.transform = `rotate(${y * parseFloat(g.dataset.gear)}deg)`;
+      });
+      if (cable) cable.style.strokeDashoffset = -y * 0.35;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    update();
+  }
+
+  // -----------------------------------------------------------------
   // Number counters (about stats)
   // -----------------------------------------------------------------
   function initCounters() {
@@ -565,6 +591,7 @@
     initScrollProgress();
     initReveal();
     initRoleRotator();
+    initScrollGears();
     initCounters();
     initSmoothScroll();
     initBackToTop();
