@@ -779,7 +779,6 @@ h2.section-title {
 
 .info-row a { color: var(--text); text-decoration: none; transition: color .2s ease; }
 .info-row a:hover { color: var(--cyan); }
-.contact-email-cta { margin-bottom: 32px; }
 
 /* ---------- Footer ---------- */
 footer { border-top: 1px solid var(--border); padding: 56px 0 32px; margin-top: 60px; }

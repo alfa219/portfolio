@@ -12,7 +12,10 @@ class BaseConfig:
     SITE_NAME = os.getenv("SITE_NAME", "wildan.iot")
     OWNER_NAME = os.getenv("OWNER_NAME", "Wildan Alfa Raezel")
     OWNER_EMAIL = os.getenv("OWNER_EMAIL", "wildanraezel@gmail.com")
-    OWNER_LOCATION = os.getenv("OWNER_LOCATION", "Wates, Yogyakarta")
+    OWNER_LOCATION = os.getenv(
+        "OWNER_LOCATION",
+        "Universitas Amikom Yogyakarta — Jl. Ring Road Utara, Condong Catur, Sleman",
+    )
 
 
 class DevelopmentConfig(BaseConfig):
