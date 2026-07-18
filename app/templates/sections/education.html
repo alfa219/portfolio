@@ -47,6 +47,7 @@
         {% endif %}
       </div>
 
+      {% if education.coursework %}
       <div class="edu-card edu-courses reveal">
         <div class="edu-courses-head">
           <h4 class="edu-courses-title">{{ t.education_relevant }}</h4>
@@ -60,6 +61,7 @@
           {% endfor %}
         </div>
       </div>
+      {% endif %}
     </div>
 
     {% if education.organizations %}

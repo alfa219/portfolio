@@ -9,19 +9,6 @@
     "status": "Active Student",
     "status_note": "Expected graduation 2027"
   },
-  "coursework": [
-    { "name": "Internet of Things" },
-    { "name": "Embedded Systems Design" },
-    { "name": "Microprocessor Architecture" },
-    { "name": "Computer Networks" },
-    { "name": "Data Structures & Algorithms" },
-    { "name": "Object-Oriented Programming" },
-    { "name": "PCB Design & Fabrication" },
-    { "name": "Wireless Communication" },
-    { "name": "Artificial Intelligence" },
-    { "name": "Mobile Application Development" },
-    { "name": "Software Engineering" },
-    { "name": "Database Systems" }
-  ],
+  "coursework": [],
   "organizations": []
 }
