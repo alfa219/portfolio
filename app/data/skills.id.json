@@ -4,7 +4,7 @@
     "tag": "A.HW",
     "title": "Hardware & MCU",
     "desc": "Board, modul, dan sensor andalan saya.",
-    "items": ["ESP32", "ESP8266", "Arduino Uno/Mega/Nano", "RPi Pico", "STM32", "NodeMCU", "PZEM-004T", "RC522 RFID", "Relay Module", "LCD 16x2", "MicroSD Module", "Ethernet Module", "TP4056", "Solar Panel", "Vibration Motor", "DHT22", "BMP280", "MPU6050", "PIR"]
+    "items": ["ESP32", "ESP8266", "Arduino Uno/Mega/Nano", "RPi Pico", "STM32", "NodeMCU", "Soldering & Perakitan PCB", "PZEM-004T", "RC522 RFID", "Relay Module", "LCD 16x2", "MicroSD Module", "Ethernet Module", "TP4056", "Solar Panel", "Vibration Motor", "DHT22", "BMP280", "MPU6050", "PIR"]
   },
   {
     "icon": "signal",
