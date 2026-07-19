@@ -18,11 +18,7 @@
   "meta_description": "Portofolio IoT & Embedded Systems — firmware ESP32, perakitan hardware, dan sistem yang terpasang di lapangan: presensi sekolah, EV charging, alat bantu difabel.",
 
 
-  "hero_currently": "Saat ini —",
-  "hero_role_1": "IoT Engineer",
-  "hero_role_2": "Embedded Developer",
-  "hero_role_3": "S1 Teknik Komputer · Amikom",
-  "hero_role_4": "Firmware & Hardware",
+  "hero_role": "IoT & Embedded Systems Developer",
   "hero_tagline": "Mahasiswa S1 Teknik Komputer Universitas Amikom Yogyakarta, fokus Internet of Things dan Embedded Systems — membangun sistem terhubung yang berjalan di lapangan, dari firmware ESP32 sampai dashboard cloud.",
   "hero_btn_projects": "Lihat Proyek",
   "hero_btn_cv": "Unduh CV",

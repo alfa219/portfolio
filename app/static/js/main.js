@@ -1,8 +1,8 @@
 /* =====================================================================
  * Portfolio interaction layer — vanilla JS
  * Modules: nav, scroll progress, reveal observer, stagger name,
- *          role rotator, counters, project modal, back-to-top,
- *          smooth scroll, copy email, drawer.
+ *          counters, project modal, back-to-top, smooth scroll,
+ *          copy email, drawer.
  * ===================================================================== */
 
 (function () {
@@ -136,31 +136,6 @@
       });
       el.appendChild(frag);
     });
-  }
-
-  // -----------------------------------------------------------------
-  // Role rotator (vertical split-flap)
-  // -----------------------------------------------------------------
-  function initRoleRotator() {
-    const track = document.getElementById('role-rotator-track');
-    if (!track || track.children.length < 2) return;
-    if (prefersReducedMotion()) return;
-    const total = track.children.length; // last child is a clone of the first
-    let i = 0;
-    setInterval(() => {
-      i += 1;
-      track.style.transform = `translateY(-${i * 100}%)`;
-      if (i === total - 1) {
-        // Landed on the clone — snap back to the real first item, unanimated.
-        setTimeout(() => {
-          track.style.transition = 'none';
-          track.style.transform = 'translateY(0)';
-          void track.offsetHeight;
-          track.style.transition = '';
-          i = 0;
-        }, 750);
-      }
-    }, 2800);
   }
 
   // -----------------------------------------------------------------
@@ -476,7 +451,6 @@
     initNav();
     initScrollProgress();
     initReveal();
-    initRoleRotator();
     initCounters();
     initSmoothScroll();
     initBackToTop();
