@@ -25,7 +25,7 @@
     "tag": "D.CLOUD",
     "title": "Cloud & IoT Platforms",
     "desc": "Where the devices report home.",
-    "items": ["Blynk", "Adafruit IO", "Firebase RTDB", "Azure App Service"]
+    "items": ["Blynk", "Adafruit IO", "ThingSpeak", "Firebase RTDB", "Azure App Service"]
   },
   {
     "icon": "db",
