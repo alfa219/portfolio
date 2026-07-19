@@ -11,7 +11,7 @@
     "photos": [
       {
         "file": "01-dokumetasi.webp",
-        "caption": "Siswa SLB Damayanti menggunakan VIBRADoor di kelas — wearable di pergelangan tangan, transmitter di meja. Dipakai harian sejak 2025."
+        "caption": "Siswa SLB Damayanti menggunakan VIBRADoor di kelas — wearable di pergelangan tangan, unit bel di meja. Dipakai harian sejak 2025."
       }
     ],
     "detail": {
@@ -20,14 +20,14 @@
       "challenge": "Proyek commissioned untuk SLB (sekolah luar biasa): siswa tuna rungu tidak dapat mendengar bel pintu kelas, sehingga tamu sering tak disadari dan komunikasi guru–siswa terhambat. Alternatif konvensional seperti lampu kedip mudah terlewat saat siswa fokus mengerjakan tugas atau membelakangi pintu.",
       "approach": [
         "Sebagai bagian dari tim 2 orang, kontribusi utama saya adalah firmware ESP32 (Arduino framework) dan perakitan hardware kedua perangkat.",
-        "Dua node ESP32 DevKit berkomunikasi lewat MQTT broker Mosquitto self-host: pemancar (push-button R13-507 di pintu kelas, adaptor 5V/1A dengan step-down LM2598 dan LED indikator) dan gelang wearable (ESP32 + LiPo 2000mAh + modul charger TP4056 + DC vibration motor 10mm dalam enclosure plastik).",
+        "Dua node ESP32 DevKit berkomunikasi lewat MQTT broker Mosquitto self-host: unit bel (push-button R13-507 di pintu kelas, adaptor 5V/1A dengan step-down LM2598 dan LED indikator) dan gelang wearable (ESP32 + LiPo 2000mAh + modul charger TP4056 + DC vibration motor 10mm dalam enclosure plastik).",
         "Memilih MQTT (pub/sub) daripada pairing langsung seperti ESP-NOW — satu tombol bisa publish ke banyak gelang sekaligus bila sekolah menambah unit, dan status koneksi tiap node bisa dipantau lewat broker.",
         "PCB lubang double-sided dengan konektor JST 2.54mm dan pin header untuk modularitas: komponen wearable bisa diganti atau diservis tanpa solder ulang — penting untuk perawatan lapangan.",
         "Manajemen daya gelang: LiPo 2000mAh diisi lewat TP4056 via jack DC 5.5×2.1mm — tahan satu hari sekolah penuh per pengisian, ringan dan aman dipakai siswa.",
-        "Total BOM Rp 366 ribu per pasang (pemancar + wearable) — terjangkau dan berkelanjutan untuk direplikasi bila ada permintaan lanjutan."
+        "Total BOM Rp 366 ribu per pasang (unit bel + wearable) — terjangkau dan berkelanjutan untuk direplikasi bila ada permintaan lanjutan."
       ],
       "outcome": [
-        "Satu pasang (pemancar + wearable) terpasang dan masih beroperasi harian di SLB Damayanti Sleman, Yogyakarta sejak 2025 — keandalan terbukti di lingkungan nyata, bukan sekadar prototipe lab.",
+        "Satu pasang (unit bel + wearable) terpasang dan masih beroperasi harian di SLB Damayanti Sleman, Yogyakarta sejak 2025 — keandalan terbukti di lingkungan nyata, bukan sekadar prototipe lab.",
         "Mengurangi hambatan komunikasi antara guru/staf dan siswa tuna rungu: siswa langsung merasakan getaran di pergelangan tangan tanpa harus memperhatikan pintu.",
         "Arsitektur MQTT mudah diskalakan: menambah pasangan untuk pintu/siswa lain cukup provisioning ke topic yang sama, tanpa mengubah firmware dasar.",
         "Bukti kepercayaan: dipercaya membangun alat IoT custom untuk kebutuhan nyata yang spesifik — melampaui proyek akademik."

@@ -16,7 +16,7 @@
     "company": "Independent · Yogyakarta",
     "points": [
       "Built VIBRADoor, a wireless vibrating doorbell for deaf students at SLB Damayanti Sleman — a commissioned project; one pair deployed and still in daily use.",
-      "Owned the ESP32 firmware and hardware assembly of both the transmitter and the wearable, communicating over a self-hosted MQTT (Mosquitto) broker.",
+      "Owned the ESP32 firmware and hardware assembly of both the bell unit and the wearable, communicating over a self-hosted MQTT (Mosquitto) broker.",
       "Designed for field maintenance: custom PCB with swappable modules and LiPo + TP4056 power; total BOM Rp 366k per pair."
     ],
     "stack": ["ESP32", "MQTT", "Mosquitto", "Custom PCB"]

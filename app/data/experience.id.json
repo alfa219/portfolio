@@ -16,7 +16,7 @@
     "company": "Independen · Yogyakarta",
     "points": [
       "Membangun VIBRADoor, bel pintu getar nirkabel untuk siswa tuna rungu di SLB Damayanti Sleman — proyek commissioned; satu pasang terpasang dan masih dipakai harian.",
-      "Bertanggung jawab atas firmware ESP32 dan perakitan hardware pemancar maupun wearable, berkomunikasi lewat broker MQTT (Mosquitto) self-host.",
+      "Bertanggung jawab atas firmware ESP32 dan perakitan hardware unit bel maupun wearable, berkomunikasi lewat broker MQTT (Mosquitto) self-host.",
       "Dirancang untuk perawatan lapangan: PCB custom dengan modul yang bisa diganti serta daya LiPo + TP4056; total BOM Rp 366 ribu per pasang."
     ],
     "stack": ["ESP32", "MQTT", "Mosquitto", "Custom PCB"]

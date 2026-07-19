@@ -32,7 +32,7 @@
     "tag": "E.DATA",
     "title": "Database & Pipeline",
     "desc": "Realtime NoSQL, relational, and MQTT brokers.",
-    "items": ["Firebase (NoSQL)", "Firebase Firestore", "PostgreSQL", "Mosquitto", "HiveMQ"]
+    "items": ["Firebase (NoSQL)", "Firebase Firestore", "MySQL", "PostgreSQL", "Mosquitto", "HiveMQ"]
   },
   {
     "icon": "wave",

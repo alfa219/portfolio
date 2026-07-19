@@ -11,7 +11,7 @@
     "photos": [
       {
         "file": "01-dokumetasi.webp",
-        "caption": "A student at SLB Damayanti using VIBRADoor in class — wearable on the wrist, transmitter at the desk. In daily use since 2025."
+        "caption": "A student at SLB Damayanti using VIBRADoor in class — wearable on the wrist, bell unit at the desk. In daily use since 2025."
       }
     ],
     "detail": {
@@ -20,14 +20,14 @@
       "challenge": "A commissioned project for a special-needs school (SLB): deaf students cannot hear the classroom doorbell, causing missed visitors and miscommunication between staff and students. Conventional alternatives such as blinking lights are easy to miss when a student is focused on work or facing away from the door.",
       "approach": [
         "As part of a 2-person team, my main contributions were the ESP32 firmware (Arduino framework) and the hardware assembly of both devices.",
-        "Two ESP32 DevKit nodes communicate through a self-hosted Mosquitto MQTT broker: a transmitter (R13-507 push button at the classroom door, 5V/1A adapter with an LM2598 step-down and an indicator LED) and a wearable wristband (ESP32 + 2000mAh LiPo + TP4056 charging module + 10mm DC vibration motor in a plastic enclosure).",
+        "Two ESP32 DevKit nodes communicate through a self-hosted Mosquitto MQTT broker: a bell unit (R13-507 push button at the classroom door, 5V/1A adapter with an LM2598 step-down and an indicator LED) and a wearable wristband (ESP32 + 2000mAh LiPo + TP4056 charging module + 10mm DC vibration motor in a plastic enclosure).",
         "Chose MQTT (pub/sub) over direct pairing such as ESP-NOW — one button can publish to many wristbands if the school adds units later, and each node's connection status can be monitored through the broker.",
         "Double-sided perfboard PCB with 2.54mm JST connectors and pin headers for modularity: wearable components can be swapped or serviced without re-soldering — important for field maintenance.",
         "Wristband power management: 2000mAh LiPo charged through a TP4056 via a 5.5×2.1mm DC jack — lasts a full school day per charge, light and safe for students to wear.",
-        "Total BOM of Rp 366k per pair (transmitter + wearable) — affordable and sustainable to replicate on follow-up requests."
+        "Total BOM of Rp 366k per pair (bell unit + wearable) — affordable and sustainable to replicate on follow-up requests."
       ],
       "outcome": [
-        "One pair (transmitter + wearable) deployed and still in daily use at SLB Damayanti Sleman, Yogyakarta since 2025 — reliability proven in a real environment, not just a lab prototype.",
+        "One pair (bell unit + wearable) deployed and still in daily use at SLB Damayanti Sleman, Yogyakarta since 2025 — reliability proven in a real environment, not just a lab prototype.",
         "Reduced communication friction between staff and deaf students: the student feels the vibration on their wrist without having to watch the door.",
         "The MQTT architecture scales: adding pairs for other doors or students only requires provisioning to the same topic, with no base-firmware changes.",
         "Commissioned-trust proof: entrusted to build a custom IoT device for a specific real-world need — beyond academic projects."
