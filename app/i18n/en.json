@@ -26,10 +26,9 @@
   "hero_tagline": "S1 Teknik Komputer student at Universitas Amikom Yogyakarta, focused on Internet of Things and Embedded Systems — building connected systems that run in the field, from ESP32 firmware to cloud dashboards.",
   "hero_btn_projects": "View Projects",
   "hero_btn_cv": "Download CV",
-  "hero_ticker_1": "1ST PLACE — ARCADIA 2026 · IOT PRODUCT",
-  "hero_ticker_2": "3 SYSTEMS DEPLOYED & RUNNING",
-  "hero_ticker_3": "REGISTERED SOFTWARE COPYRIGHT (HKI)",
-  "hero_ticker_4": "OPEN TO INTERNSHIP & FREELANCE · WILLING TO RELOCATE",
+  "hero_ticker_1": "3 SYSTEMS DEPLOYED & RUNNING",
+  "hero_ticker_2": "REGISTERED SOFTWARE COPYRIGHT (HKI)",
+  "hero_ticker_3": "OPEN TO INTERNSHIP & FREELANCE · WILLING TO RELOCATE",
 
   "about_kicker": "01 // About",
   "about_title_l1": "Engineer wired",
