@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wildan Alfa Raezel — CV</title>
+<style>
+  /* ATS-safe: single column, standard fonts, no tables/graphics/headers */
+  @page { size: A4; margin: 13mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #e8e8e8; }
+  body {
+    font-family: Calibri, Carlito, Arial, sans-serif;
+    font-size: 10.6pt; line-height: 1.38; color: #111;
+    max-width: 210mm; margin: 0 auto; background: #fff;
+    padding: 13mm 15mm;
+  }
+  @media screen {
+    body { margin: 24px auto; box-shadow: 0 2px 24px rgba(0,0,0,.18); }
+    .print-hint {
+      position: fixed; top: 12px; right: 12px; background: #111; color: #fff;
+      padding: 8px 14px; border-radius: 6px; font-size: 9.5pt; z-index: 9;
+    }
+  }
+  @media print { .print-hint { display: none; } html { background: #fff; } body { box-shadow: none; margin: 0; padding: 0; } }
+
+  h1 { font-size: 19pt; letter-spacing: .01em; }
+  .headline { font-size: 11.5pt; color: #333; margin: 2px 0 6px; }
+  .contact { font-size: 9.8pt; color: #222; }
+  .contact a { color: #222; text-decoration: none; }
+
+  h2 {
+    font-size: 10.8pt; text-transform: uppercase; letter-spacing: .08em;
+    border-bottom: 1.2px solid #111; padding-bottom: 3px; margin: 13px 0 7px;
+  }
+  p, li { margin-bottom: 3px; }
+  ul { padding-left: 16px; }
+  .role { display: flex; justify-content: space-between; gap: 12px; margin-top: 7px; }
+  .role b { font-size: 10.8pt; }
+  .role .date { white-space: nowrap; color: #333; }
+  .org { color: #333; font-size: 10pt; margin-bottom: 3px; }
+  .skills p { margin-bottom: 4px; }
+  .skills b { font-weight: 700; }
+  a { color: #111; }
+</style>
+</head>
+<body>
+<div class="print-hint">Ctrl+P → Save as PDF</div>
+
+<h1>WILDAN ALFA RAEZEL</h1>
+<div class="headline">Junior IoT / Embedded Systems Developer</div>
+<div class="contact">
+  Yogyakarta, Indonesia &nbsp;·&nbsp; [+62 8xx-xxxx-xxxx] &nbsp;·&nbsp; wildanraezel@gmail.com<br/>
+  linkedin.com/in/wildan-alfa-raezel-a60629387 &nbsp;·&nbsp; github.com/alfa219
+</div>
+
+<h2>Summary</h2>
+<p>
+Computer Engineering undergraduate (S1 Teknik Komputer) at Universitas Amikom Yogyakarta specializing in
+Internet of Things (IoT) and embedded systems. Built and deployed three systems now running in production —
+a school attendance system, an assistive doorbell for deaf students, and an award-winning smart EV charging
+platform. First-place winner at ARCADIA 2026 (IoT Product category) and co-creator of a government-registered
+software copyright (HKI). Open to junior IoT/embedded roles, internships, and freelance work; willing to relocate.
+</p>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+  <p><b>Microcontrollers &amp; Boards:</b> ESP32, ESP8266, Arduino (Uno/Mega/Nano), Raspberry Pi Pico, STM32, NodeMCU</p>
+  <p><b>Firmware &amp; Languages:</b> C/C++, MicroPython, Python, JavaScript, Dart</p>
+  <p><b>Protocols &amp; Connectivity:</b> MQTT, HTTP/REST, WebSocket, Bluetooth Low Energy (BLE), Wi-Fi, GSM/NB-IoT, LTE-M, Modbus, RS-485, Ethernet (W5500)</p>
+  <p><b>Sensors &amp; Modules:</b> PZEM-004T energy meter, RC522 RFID, DHT22, BMP280, MPU6050, PIR, relay modules, LCD 16x2, RTC DS3231, SD card, TP4056 charging, solar panel</p>
+  <p><b>Backend &amp; Cloud:</b> Flask, Firebase Realtime Database, Firebase Firestore, Socket.IO, PostgreSQL, Mosquitto, HiveMQ, Microsoft Azure App Service, Blynk, Adafruit IO</p>
+  <p><b>Mobile:</b> Flutter, Riverpod, GoRouter, Firebase Cloud Messaging (FCM)</p>
+  <p><b>Tools:</b> Git/GitHub, Docker, PlatformIO, Arduino IDE, EAGLE, EasyEDA, Fritzing, VS Code</p>
+</div>
+
+<h2>Experience</h2>
+
+<div class="role"><b>Laboratory Assistant — Data Acquisition Systems (IoT Concentration)</b><span class="date">2026 – Present</span></div>
+<div class="org">Universitas Amikom Yogyakarta · Computer Laboratory</div>
+<ul>
+  <li>Guide students through sensor reading, data logging, and telemetry on ESP32 in weekly practicum sessions.</li>
+  <li>Prepare practicum materials and debug student wiring and firmware issues during lab work.</li>
+</ul>
+
+<div class="role"><b>Commissioned IoT Developer (Freelance) — VIBRADoor</b><span class="date">2025</span></div>
+<div class="org">Independent · Yogyakarta</div>
+<ul>
+  <li>Built a wireless vibrating doorbell for deaf students; one transmitter–wearable pair deployed at SLB Damayanti Sleman and in daily use since 2025.</li>
+  <li>Owned the ESP32 firmware (Arduino framework) and hardware assembly of both devices, communicating over a self-hosted MQTT (Mosquitto) broker with a pub/sub topology that scales to multiple wristbands.</li>
+  <li>Designed for field maintenance with a modular custom PCB and LiPo + TP4056 power; total bill of materials Rp 366K per pair.</li>
+</ul>
+
+<div class="role"><b>Laboratory Assistant — Hardware Development</b><span class="date">2025</span></div>
+<div class="org">Universitas Amikom Yogyakarta · Computer Laboratory</div>
+<ul>
+  <li>Assisted the practicum on microcontroller fundamentals and component-level wiring with Arduino and ESP32; maintained lab equipment inventory and prepared weekly kits.</li>
+</ul>
+
+<h2>Projects</h2>
+
+<div class="role"><b>Presensi SMPN 2 Paliyan — IoT School Attendance System</b><span class="date">2026 – Present</span></div>
+<div class="org">Team project with SMPN 2 Paliyan as partner school · presensi-smpn2-paliyan.my.id</div>
+<ul>
+  <li>RFID + keypad attendance device installed at the school gate and used for daily attendance, with a real-time admin dashboard and a public parent portal.</li>
+  <li>Developed the ESP32 firmware, assembled the gate hardware (RC522 RFID, keypad, LCD, DS3231 RTC, W5500 Ethernet, SD card, UPS), and built the Flask + Firebase Firestore backend serving as the single data gateway.</li>
+  <li>Engineered fault tolerance: SD-card store-and-forward through network outages, UPS backup through power cuts, and watchdog + scheduled reboots for unattended 24/7 operation.</li>
+</ul>
+
+<div class="role"><b>PAYCAY — Smart EV Charging Station (IoT + Web)</b><span class="date">2025 – 2026</span></div>
+<div class="org">Solo build · github.com/alfa219/paycay-</div>
+<ul>
+  <li>Won 1st place, IoT Product category, at ARCADIA 2026 (Faculty of Computer Science, Universitas Amikom Yogyakarta).</li>
+  <li>Built end-to-end: ESP32 firmware (PZEM-004T energy metering, RFID tap-to-start, AC relay control), Flask backend with a real-time Socket.IO dashboard and Firebase Realtime Database; deployed live on Azure App Service with GitHub Actions CI/CD.</li>
+  <li>Implemented automatic balance deduction from kWh readings and a complete REST API covering the full charging-session lifecycle.</li>
+</ul>
+
+<div class="role"><b>PAYCAY Mobile — Flutter Companion App</b><span class="date">2025 – 2026</span></div>
+<div class="org">Solo build · github.com/alfa219/app-paycay</div>
+<ul>
+  <li>Dual-role (user/admin) app with real-time station monitoring via Firebase RTDB, a digital wallet using atomic Firestore transactions, and session recovery that survives the app being killed mid-charge.</li>
+</ul>
+
+<h2>Education</h2>
+<div class="role"><b>Universitas Amikom Yogyakarta — S1 Teknik Komputer (Computer Engineering)</b><span class="date">2023 – Present</span></div>
+<div class="org">Concentration: Internet of Things · Expected graduation 2027</div>
+
+<h2>Certifications</h2>
+<ul>
+  <li>CCNA: Enterprise Networking, Security &amp; Automation — Cisco Networking Academy, Jul 2025 (ID: 59fcddb5-bfce-44ef-8d7d-b431c87be388)</li>
+  <li>CCNA: Switching, Routing &amp; Wireless Essentials — Cisco Networking Academy, Mar 2025 (ID: f8e80bd1-e91e-4cf0-919f-0840ed7bcdc1)</li>
+  <li>CCNAv7: Introduction to Networks — Cisco Networking Academy, Aug 2024 (ID: 6bd505b3-7acc-4f70-b5ba-05424ae229f1)</li>
+</ul>
+
+<h2>Awards &amp; Intellectual Property</h2>
+<ul>
+  <li>1st Place, IoT Product — ARCADIA 2026, Universitas Amikom Yogyakarta (winning entry: PAYCAY), Feb 2026.</li>
+  <li>Honorable Mention (Juara Harapan II), IoT category — Indonesia National IT Competition (INDONERIS) 2025, Universitas Amikom Purwokerto, Dec 2025.</li>
+  <li>Registered Software Copyright (Hak Cipta / HKI) — "Emergency Input &amp; Alert Station (EIAS) v1.0", listed co-creator; DJKI reg. no. 001273262, 2026.</li>
+</ul>
+
+</body>
+</html>
