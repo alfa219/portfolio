@@ -156,7 +156,6 @@ h2.section-title {
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 14px; font-weight: 500; color: var(--text); }
-.brand-glyph { width: 22px; height: 22px; border: 1.5px solid var(--cyan); border-radius: 4px; display: grid; place-items: center; color: var(--cyan); font-size: 11px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15); }
 .nav-links { display: flex; gap: 4px; font-family: var(--font-mono); font-size: 12px; }
 .nav-links a { padding: 8px 12px; border-radius: 6px; color: var(--text-2); transition: color .2s ease, background .2s ease; position: relative; }
 .nav-links a:hover { color: var(--text); background: var(--bg-2); }
