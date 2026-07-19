@@ -10,7 +10,6 @@
       </div>
       <div class="section-meta">
         <div>{{ t.projects_meta_viewing }} <span class="v">{{ projects | length }}</span></div>
-        <div>{{ t.projects_meta_filter }} <span class="v">[all]</span></div>
       </div>
     </div>
 
@@ -29,6 +28,7 @@
             <span class="project-id">{{ p.id }}</span>
           </div>
           <div class="project-body">
+            <div class="project-index">{{ '%02d' | format(loop.index) }}</div>
             <h3 class="project-title">{{ p.title }}</h3>
             <p class="project-desc">{{ p.desc }}</p>
             <div class="project-stack">

@@ -71,10 +71,9 @@
 
   "projects_kicker": "04 // Featured Work",
   "projects_title_l1": "Selected projects.",
-  "projects_title_l2": "Hardware that ships.",
+  "projects_title_l2": "Built, deployed, running.",
   "projects_sub": "A slice of recent builds. Click any card for the full case study.",
-  "projects_meta_viewing": "VIEWING:",
-  "projects_meta_filter": "FILTER:",
+  "projects_meta_viewing": "PROJECTS:",
   "projects_read_case": "Read Case Study",
   "projects_status_live": "Live",
   "projects_status_wip": "In Progress",

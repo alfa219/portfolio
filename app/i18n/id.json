@@ -71,10 +71,9 @@
 
   "projects_kicker": "04 // Karya Unggulan",
   "projects_title_l1": "Proyek terpilih.",
-  "projects_title_l2": "Hardware yang beroperasi.",
+  "projects_title_l2": "Dibangun, terpasang, berjalan.",
   "projects_sub": "Sebagian proyek terbaru. Klik kartu mana pun untuk case study lengkap.",
-  "projects_meta_viewing": "MENAMPILKAN:",
-  "projects_meta_filter": "FILTER:",
+  "projects_meta_viewing": "PROYEK:",
   "projects_read_case": "Baca Studi Kasus",
   "projects_status_live": "Live",
   "projects_status_wip": "Berjalan",
