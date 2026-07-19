@@ -255,17 +255,21 @@
     if (!tpl) return;
 
     let current = null;
+    const HASH_RE = /^#(PRJ_[A-Za-z0-9_]+)$/;
 
-    const close = () => {
+    const close = (fromNav) => {
       if (!current) return;
       current.remove();
       current = null;
       document.body.style.overflow = '';
+      // Closed via the UI: drop the deep-link hash we pushed on open.
+      if (!fromNav && HASH_RE.test(location.hash)) history.back();
     };
 
-    const open = (id) => {
+    const open = (id, fromNav) => {
       const project = projects.find(p => p.id === id);
       if (!project) return;
+      if (current) close(true);
       const detail = project.detail || {};
 
       const node = tpl.content.firstElementChild.cloneNode(true);
@@ -412,6 +416,10 @@
       document.body.appendChild(node);
       pauseSvgAnimations(node);
       current = node;
+      // Deep link: every case study gets a shareable /#PRJ_xxx URL.
+      if (!fromNav && location.hash !== '#' + id) {
+        history.pushState(null, '', '#' + id);
+      }
     };
 
     cards.forEach(card => {
@@ -428,6 +436,15 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') close();
     });
+
+    // Deep links: open from the URL hash on load, follow back/forward.
+    const syncWithHash = () => {
+      const m = location.hash.match(HASH_RE);
+      if (m) open(m[1], true);
+      else if (current) close(true);
+    };
+    window.addEventListener('popstate', syncWithHash);
+    syncWithHash();
   }
 
   // -----------------------------------------------------------------

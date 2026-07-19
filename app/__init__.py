@@ -1,4 +1,4 @@
-from flask import Flask, g, request
+from flask import Flask, g, render_template, request
 from whitenoise import WhiteNoise
 from .config import config, INSECURE_DEFAULT_SECRET
 from . import i18n
@@ -44,6 +44,10 @@ def create_app(env: str = "development") -> Flask:
         resp.headers.setdefault("X-Frame-Options", "DENY")
         resp.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
         return resp
+
+    @app.errorhandler(404)
+    def not_found(_e):
+        return render_template("404.html"), 404
 
     from .routes.main import main_bp
     app.register_blueprint(main_bp)

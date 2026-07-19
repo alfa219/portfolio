@@ -151,5 +151,9 @@
   "footer_designed": "Dirancang dan dikerjakan di Yogyakarta",
   "footer_view_source": "lihat source",
 
-  "back_to_top": "Kembali ke atas"
+  "back_to_top": "Kembali ke atas",
+
+  "err404_kicker": "404 // Tidak Ditemukan",
+  "err404_p": "Alamat ini tidak ada — seluruh portofolio ada di satu halaman.",
+  "err404_btn": "Kembali ke beranda"
 }

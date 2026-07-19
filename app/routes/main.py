@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from flask import Blueprint, g, render_template, redirect, make_response, request, url_for
+from flask import Blueprint, Response, g, render_template, redirect, make_response, request, url_for
 from app import i18n
 
 main_bp = Blueprint("main", __name__)
@@ -35,6 +35,23 @@ def index():
         posts=load_json("posts.json"),
         testimonials=load_json("testimonials.json"),
     )
+
+
+@main_bp.route("/robots.txt")
+def robots():
+    body = f"User-agent: *\nAllow: /\n\nSitemap: {request.url_root}sitemap.xml\n"
+    return Response(body, mimetype="text/plain")
+
+
+@main_bp.route("/sitemap.xml")
+def sitemap():
+    body = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"  <url><loc>{request.url_root}</loc></url>\n"
+        "</urlset>\n"
+    )
+    return Response(body, mimetype="application/xml")
 
 
 @main_bp.route("/lang/<code>")

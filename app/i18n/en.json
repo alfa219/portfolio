@@ -151,5 +151,9 @@
   "footer_designed": "Designed and engineered in Yogyakarta",
   "footer_view_source": "view source",
 
-  "back_to_top": "Back to top"
+  "back_to_top": "Back to top",
+
+  "err404_kicker": "404 // Not Found",
+  "err404_p": "This address doesn't exist — the whole portfolio lives on one page.",
+  "err404_btn": "Back to home"
 }

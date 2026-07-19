@@ -12,6 +12,24 @@
   <meta property="og:title" content="{{ config.OWNER_NAME }} — IoT Engineer Portfolio"/>
   <meta property="og:description" content="{{ t.meta_description }}"/>
   <meta property="og:type" content="website"/>
+  <meta property="og:image" content="{{ url_for('static', filename='og-image.png', _external=True) }}"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="{{ config.OWNER_NAME }} — IoT Engineer Portfolio"/>
+  <meta name="twitter:description" content="{{ t.meta_description }}"/>
+  <meta name="twitter:image" content="{{ url_for('static', filename='og-image.png', _external=True) }}"/>
+
+  <script type="application/ld+json">{{ {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    'name': config.OWNER_NAME,
+    'jobTitle': 'Computer Engineering Student — IoT & Embedded Systems',
+    'email': 'mailto:' ~ config.OWNER_EMAIL,
+    'url': request.url_root,
+    'sameAs': ['https://github.com/alfa219'],
+    'affiliation': {'@type': 'CollegeOrUniversity', 'name': 'Universitas Amikom Yogyakarta'}
+  } | tojson }}</script>
 
   <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}"/>
 
